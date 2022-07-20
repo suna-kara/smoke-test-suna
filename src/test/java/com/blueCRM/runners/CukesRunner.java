@@ -1,2 +1,5 @@
-package com.blueCRM.runners;public class CukesRunner {
+package com.blueCRM.runners;
+
+public class CukesRunner {
+
 }
