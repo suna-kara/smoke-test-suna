@@ -7,8 +7,21 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import com.blueCRM.utilities.Driver;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
 public class Hooks {
 
+@Before
+    public void setUp(){
+        Driver.getDriver().manage().window().maximize();
+        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
+    
     @After
     public void teardownScenario(Scenario scenario){
         BrowserUtils.sleep(1);
@@ -18,4 +31,5 @@ public class Hooks {
         }
         Driver.closeDriver();
     }
+
 }
