@@ -1,7 +1,6 @@
 package com.blueCRM.utilities;
 
 public class BrowserUtils {
-
     /*
 This method will accept int (in seconds) and execute Thread.sleep
 for given duration
@@ -14,6 +13,4 @@ for given duration
 
         }
     }
-
-
 }
