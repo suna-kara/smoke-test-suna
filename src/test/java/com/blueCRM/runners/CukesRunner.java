@@ -14,9 +14,9 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue =    "com/blueCRM/step_definitions",
         dryRun = false,
-        tags = ""
+        tags = "" //recommended to don't write tags
 
-)
+
 
 public class CukesRunner {
 
