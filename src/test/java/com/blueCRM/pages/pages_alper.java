@@ -1,4 +1,6 @@
 package com.blueCRM.pages;
 
-public class Pages {
+public class pages_alper {
+
+
 }
