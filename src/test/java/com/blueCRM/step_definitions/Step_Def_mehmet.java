@@ -1,4 +1,4 @@
 package com.blueCRM.step_definitions;
 
-public class Step_Def_mehmet_ {
+public class Step_Def_mehmet {
 }
