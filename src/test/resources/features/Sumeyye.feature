@@ -1,9 +1,12 @@
+
+@wip
 Feature: Interacting with employees on posts
   As a user, I should be able to interact with employees on the posts.
 
 
   Background: For the scenarios in this feature file, user is expected to be on login page
     Given user is on the library login page
+
 
   Scenario: User should be able to make a comment, like, or unfollow other employees' posts.
 
@@ -21,6 +24,7 @@ Feature: Interacting with employees on posts
     And user clicks on send
     Then the comment appears on the post thread
 
+
   Scenario: User should be able to make a comment and like another reviewer's post
 
     When user goes to a review
@@ -32,6 +36,7 @@ Feature: Interacting with employees on posts
     And user writes something
     And user clicks on send
     Then the comment appears on the post thread
+
 
   Scenario: User should be able to like and reply to their own comment.
 
@@ -50,6 +55,7 @@ Feature: Interacting with employees on posts
     And user writes something
     And user clicks on send
     Then the comment appears on the post thread
+
 
   Scenario: After making a comment user should be able to "view comment", "copy link", "edit", "delete" and "create task"
   by clicking on "more"
@@ -96,6 +102,7 @@ Feature: Interacting with employees on posts
     And user clicks on more below the comment
     And user clicks on create task
     Then a sign with the words task has been created appears on top right
+
 
   Scenario: User should be able to see the reviewers' names and visit their profiles by clicking on reviewers' name
     When user goes to a post
