@@ -8,5 +8,8 @@ Feature:send message
   password:UserUser
 
   Background:User should login with correct credential
+
+    Scenario: asdasdasd
+
   Given user is on the library login page
 
