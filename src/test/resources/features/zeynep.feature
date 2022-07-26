@@ -34,7 +34,7 @@ Feature: As a user, I should be able to upload files and pictures as messages
     And user uploads a file in PNG format
     Then the files should be sucsessfully uploaded
 
-  @wip
+
   Scenario: User should be able to display the uploaded picture itself in Activity Stream.
     When user clicks on the send message tab
     And user clicks on the uploadFile button
@@ -42,7 +42,7 @@ Feature: As a user, I should be able to upload files and pictures as messages
     And user clicks on the uploaded file
     Then user should be able to display the uploaded picture
 
-
+  @zeynep
  Scenario: User should be able to insert the files and images into the text
    When user clicks on the send message tab
    And user clicks on the uploadFile button
