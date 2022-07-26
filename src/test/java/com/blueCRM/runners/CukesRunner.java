@@ -13,10 +13,10 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue =    "com/blueCRM/step_definitions",
-        dryRun = false,
-        tags = "" //recommended to don't write tags
+        dryRun = true,
+        tags = ""
 
-
+)
 
 public class CukesRunner {
 
