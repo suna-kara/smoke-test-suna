@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class Step_Def_Harun {
@@ -29,7 +30,7 @@ public class Step_Def_Harun {
     @When("user clicks on filter and search box")
     public void user_clicks_on_filter_and_search_box() {
         page.filterAndSearch.click();
-        //WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
     }
 
     @Then("the following default filters should be displayed")
