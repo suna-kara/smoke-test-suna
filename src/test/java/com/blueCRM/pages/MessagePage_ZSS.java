@@ -66,8 +66,23 @@ public class MessagePage_ZSS {
     @FindBy(xpath = "//img[@class='files-preview']")
     public WebElement uploadedImagePreviewButton;
 
-    @FindBy(xpath= "//img[@src=\"https://qa.azulcrm.com/disk/showFile/1923/?&ncc=1&width=275&height=206&signature=089229333000f5df32e2eedbd3617000dd479a6a8bbd91af92c5073415509e14&ts=1658692757&filename=zeynep2.jpeg\"]")
+    @FindBy(id= "bx-wufd-preview-img-wufdp_0.040459482325975404")
     public WebElement imagePreviewPopUp;
+
+    @FindBy(xpath = "(//div[@class='feed-post-block feed-post-block-files feed-post-block-separator feed-post-block-short'])[1]//a[@class='feed-com-file-name']")
+    public WebElement fileNameDisplayedAfterSendingMessage;
+
+    @FindBy(xpath = "(//div[@class='feed-post-block feed-post-block-files feed-post-block-separator feed-post-block-short'])[1]//a[@class='feed-add-post-destination-new']")
+    public WebElement emailNameDisplayedAfterSendingMessage;
+
+    @FindBy(id = "blog-submit-button-save")
+    public WebElement sendButton;
+
+    @FindBy(xpath = "//a[.='Add more']")
+    public WebElement addEmployeeButton;
+
+    @FindBy(xpath = "//a[@class='bx-finder-box-item-t7 bx-finder-element bx-lm-element-user']")
+    public List<WebElement> listOfEmployees;
 
     public boolean isElementPresent(WebElement element) {
         try {

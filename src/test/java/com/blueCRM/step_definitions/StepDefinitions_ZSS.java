@@ -5,6 +5,7 @@ import com.blueCRM.pages.MessagePage_ZSS;
 import com.blueCRM.utilities.BrowserUtils;
 import com.blueCRM.utilities.ConfigurationReader;
 import com.blueCRM.utilities.Driver;
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,17 +17,26 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import java.util.Map;
+
 import static org.junit.Assert.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class StepDefinitions_ZSS {
+    LoginPage_ZSS loginPage= new LoginPage_ZSS();
     MessagePage_ZSS mesaggePage= new MessagePage_ZSS();
     Actions actions= new Actions(Driver.getDriver());
 
-    @Given("User is expected to login")
-    public void user_is_expected_to_login() {
- LoginPage_ZSS loginPage_zss= new LoginPage_ZSS();
- loginPage_zss.login();
+
+    @Given("User is expected to login with valid credentials")
+    public void user_is_expected_to_login_with_and(Map<String, String> credentials) {
+        Driver.getDriver().get("https://qa.azulcrm.com/");
+        loginPage.userNameInput.sendKeys(credentials.get("username"));
+        loginPage.userPasswordInput.sendKeys(credentials.get("password"));
+        loginPage.loginButton.click();
     }
+
     @When("user clicks on the send message tab")
     public void user_clicks_on_the_send_message_tab() {
         mesaggePage.messageBox.click();
@@ -139,7 +149,8 @@ public class StepDefinitions_ZSS {
 
     @Then("user should be able to display the uploaded picture")
     public void userShouldBeAbleToDisplayTheUploadedPicture() {
-       BrowserUtils.sleep(10);
+       WebDriverWait wait= new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(5));
+       wait.until(ExpectedConditions.presenceOfElementLocated(By.id("bx-wufd-preview-img-wufdp_0.040459482325975404")));
         assertTrue(mesaggePage.imagePreviewPopUp.isDisplayed());
 
 
@@ -202,4 +213,37 @@ public class StepDefinitions_ZSS {
         String renamedFileName= mesaggePage.displayedFileNameText.getText();
         assertEquals("renaming_performed", renamedFileName);
     }
+
+    @And("user clicks the send button")
+    public void userClicksTheSendButton() {
+        mesaggePage.sendButton.click();
+    }
+
+    @Then("message should be sent")
+    public void messageShouldBeSent() {
+        BrowserUtils.sleep(3);
+        assertTrue(mesaggePage.fileNameDisplayedAfterSendingMessage.isDisplayed());
+    }
+
+
+
+    @And("user chooses an employee in the employee list and clicks send button")
+    public void userChoosesAnEmployeeInTheEmployeeList() {
+        mesaggePage.addEmployeeButton.click();
+        mesaggePage.listOfEmployees.get(0).click();
+        BrowserUtils.sleep(2);
+    }
+
+    @Then("message should be sent to the selected employee")
+    public void messageShouldBeSentToTheSelectedEmployee() {
+        WebElement selectedEmployee= mesaggePage.listOfEmployees.get(0);
+        BrowserUtils.sleep(2);
+
+        mesaggePage.sendButton.click();
+
+        assertTrue(mesaggePage.fileNameDisplayedAfterSendingMessage.isDisplayed());
+        assertEquals(selectedEmployee.getText(), mesaggePage.emailNameDisplayedAfterSendingMessage.getText());
+    }
+
+
 }
