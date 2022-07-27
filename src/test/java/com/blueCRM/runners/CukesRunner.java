@@ -1,6 +1,5 @@
 package com.blueCRM.runners;
 
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -15,9 +14,10 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue =    "com/blueCRM/step_definitions",
         dryRun = false,
-        tags = "" //recommended to don't write tags
+        tags = ""
+
 )
 
-
 public class CukesRunner {
+
 }
