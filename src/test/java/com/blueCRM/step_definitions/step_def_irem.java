@@ -20,11 +20,11 @@ public class step_def_irem {
     @Given("User should login with correct credential")
     public void user_should_login_with_correct_credential() {
 
-        Driver.getDriver().get(ConfigurationReader.getProperty("urlirem"));
+        Driver.getDriver().get("https://qa.azulcrm.com/");
 
         BrowserUtils.sleep(1);
 
-        page.usernamebox.sendKeys(ConfigurationReader.getProperty("usernameirem"));
+        page.usernamebox.sendKeys("helpdesk1@cybertekschool.com");
         // Faker faker = new Faker();
         // messagePage.usernamebox.sendKeys("hr" + faker.numerify("##") + "@cybertekschool.com");
 
