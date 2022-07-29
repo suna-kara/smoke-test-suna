@@ -15,7 +15,6 @@ for given duration
         try {
             Thread.sleep(second);
         }catch (InterruptedException e ) {
-
         }
     }
 
