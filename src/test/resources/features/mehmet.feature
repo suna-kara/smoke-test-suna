@@ -1,4 +1,3 @@
-@mehmet
 Feature: Activity Stream Page Filter And Search Functionality
   User story: As a user, I should be able to use "Filter and search" functionality on Active Stream.
 
@@ -15,5 +14,26 @@ Feature: Activity Stream Page Filter And Search Functionality
       | ANNOUNCEMENTS |
       | WORKFLOWS     |
 
-  #Scenario: User should be able to add and remove fields.
-    #When Users click on filter and search input box
+  @mehmet
+  Scenario: Users should be able to add and remove fields.
+    When Users click on filter and search input box
+    And Users click on the add field button
+    And Users add all option in search field
+    Then Verify that the all options is selected
+      | Date      |
+      | Type      |
+      | Author    |
+      | To        |
+      | Favorites |
+      | Tag       |
+      | Extranet  |
+    And Users remove all option in the search field
+    Then Verify that the all options is not selected
+      | Date      |
+      | Type      |
+      | Author    |
+      | To        |
+      | Favorites |
+      | Tag       |
+      | Extranet  |
+

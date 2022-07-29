@@ -25,10 +25,22 @@ public class Pages_mehmet {
     @FindBy(id = "LIVEFEED_search")
     public WebElement FilterAndSearchInputBox;
 
-    @FindBy(xpath = "//span[@class='main-ui-filter-sidebar-item-text']")
+    @FindBy(xpath = "//span[@class='main-ui-filter-sidebar-item-text'][.!='Filter']")
     public List<WebElement> listInTheFilterAndSearch;
 
     @FindBy(xpath = "//span[@class='main-ui-filter-field-add-item']")
     public WebElement addFieldButton;
+
+    @FindBy(xpath = "//div[@class='main-ui-filter-wrapper main-ui-filter-theme-rounded']")
+    public WebElement FilterAndSearchWindow;
+
+    @FindBy(xpath = "//div[@class='main-ui-filter-field-list-item main-ui-select-inner-item']")
+    public List<WebElement> noneSelectedOptions;
+
+    @FindBy(xpath = "//div[@class='main-ui-filter-field-list-item main-ui-select-inner-item main-ui-checked']")
+    public List<WebElement> selectedOptions;
+
+    @FindBy(xpath = "//span[@class='main-ui-control-field-label']")
+    public List<WebElement> currentList;
 
 }
