@@ -90,10 +90,6 @@ public class Step_Def_mehmet {
         System.out.println("Actual List: "+actualElementList);
         System.out.println("Expected List: "+expectedList);
         Assert.assertTrue(actualElementList.containsAll(expectedList));
-
-
-
-
     }
     @And("Users remove all option in the search field")
     public void users_remove_all_option_in_the_search_field() {
@@ -115,9 +111,6 @@ public class Step_Def_mehmet {
         System.out.println("Expected Removed List: "+expectedList);
 
         Assert.assertTrue(actualElementList.containsAll(expectedList));
-
-
-
     }
 
 
