@@ -1,6 +1,5 @@
 package com.blueCRM.step_definitions;
 
-import com.blueCRM.pages.BasePage;
 import com.blueCRM.pages.Pages_mehmet;
 import com.blueCRM.utilities.BrowserUtils;
 import com.blueCRM.utilities.ConfigurationReader;
