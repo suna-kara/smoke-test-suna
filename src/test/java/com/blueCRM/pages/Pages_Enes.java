@@ -58,14 +58,31 @@ public  class Pages_Enes {
     @FindBy(xpath = "//a[@class='bx-finder-company-department-employee  bx-finder-element'][2]")
     public WebElement departmentEmployees2;
 
+    @FindBy(xpath = "//a[@class='bx-finder-company-department-employee  bx-finder-element'][3]")
+    public WebElement departmentEmployees3;
+
     @FindBy(xpath = "(//span[@class='feed-add-post-destination-text'])[2]")
     public WebElement selectedEmployess1;
 
     @FindBy(xpath = "(//span[@class='feed-add-post-destination-text'])[3]")
     public WebElement selectedEmployess2;
 
+    @FindBy(xpath = "(//span[@class='feed-add-post-destination-text'])[1]")
+    public WebElement selectedEmployess3;
+
+
+
+
     @FindBy(xpath = "(//span[@class='feed-add-post-del-but'])[2]")
     public WebElement deletesymbol1;
+
+    @FindBy(xpath = "(//span[@class='feed-add-post-del-but'])[1]")
+    public WebElement deletesymbolforAllEmployess;
+
+    @FindBy(className = "feed-add-post-destination-text")
+    public WebElement allEmployess;
+
+
 
 
 

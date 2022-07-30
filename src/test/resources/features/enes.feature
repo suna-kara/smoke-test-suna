@@ -13,13 +13,26 @@ Feature:send message
     Given user is on the library login page
 
 
-  @wipEnes
-  Scenario:Verify that users send a message by fiiling in the mandatory fields.
+
+
+  Scenario:AC01-TC1Verify that users send a message by fiiling in the mandatory fields.
     When user clicks on the message tab
     And user clicks on the topic button
     And user writes their topic name in the Topic
     And user writes their message in the message field
     Then Verify that users send a message by fiiling in the mandatory fields
+
+  @wipEnes
+    Scenario:AC02-TC2Verify The message delivery should be to All employees by default and should be changeable.
+      When user clicks on the message tab
+      Then Verify User should be sees message delivery as all employees by default
+      And User should be changeable in The message delivery
+      Then Verify Message delivery must have been modified
+
+
+
+
+
 
 
 

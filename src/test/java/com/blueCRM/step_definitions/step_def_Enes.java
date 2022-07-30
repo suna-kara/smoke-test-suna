@@ -4,6 +4,8 @@ import com.blueCRM.pages.Pages_Enes;
 import com.blueCRM.utilities.BrowserUtils;
 import com.blueCRM.utilities.ConfigurationReader;
 import com.blueCRM.utilities.Driver;
+import com.github.javafaker.Faker;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,6 +21,9 @@ import static org.junit.Assert.*;
 public class step_def_Enes {
 
     Pages_Enes pages_enes = new Pages_Enes();
+    Faker faker = new Faker();
+
+
 
 
     @Given("user is on the library login page")
@@ -58,8 +63,11 @@ public class step_def_Enes {
     @When("user writes their topic name in the Topic")
     public void user_writes_their_topic_name_in_the_topic() {
 
+
         BrowserUtils.sleep(2);
-        pages_enes.TopicBox.sendKeys("Message Title");
+        pages_enes.TopicBox.sendKeys(faker.name().title());
+
+
 
     }
     @When("user writes their message in the message field")
@@ -70,7 +78,10 @@ public class step_def_Enes {
 
         BrowserUtils.sleep(2);
 
-        pages_enes.textBox.sendKeys("User wrote a message");
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(pages_enes.textBox));
+
+        pages_enes.textBox.sendKeys(faker.lorem().paragraph());
 
         Driver.getDriver().switchTo().parentFrame();
 
@@ -119,4 +130,58 @@ public class step_def_Enes {
     }
 
 
+    @Then("Verify User should be sees message delivery as all employees by default")
+    public void verifyUserShouldBeSeesMessageDeliveryAsAllEmployeesByDefault() {
+
+        Assert.assertTrue(pages_enes.allEmployess.isDisplayed());
+
+    }
+
+    @And("User should be changeable in The message delivery")
+    public void userShouldBeChangeableInTheMessageDelivery() {
+
+        pages_enes.deletesymbolforAllEmployess.click();
+
+
+
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(pages_enes.addMoreButton));
+        pages_enes.addMoreButton.click();
+
+        BrowserUtils.sleep(2);
+
+        pages_enes.employessanddepartmentsButton.click();
+
+
+
+        BrowserUtils.sleep(2);
+
+        pages_enes.departmentEmployees.click();
+
+        BrowserUtils.sleep(2);
+
+        pages_enes.departmentEmployees2.click();
+
+        BrowserUtils.sleep(2);
+
+        assertTrue(pages_enes.selectedEmployess3.isDisplayed());
+        assertTrue(pages_enes.selectedEmployess1.isDisplayed());
+
+        BrowserUtils.sleep(2);
+
+
+
+
+
+
+
+    }
+
+    @Then("Verify Message delivery must have been modified")
+    public void verifyMessageDeliveryMustHaveBeenModified() {
+
+
+
+    }
 }
