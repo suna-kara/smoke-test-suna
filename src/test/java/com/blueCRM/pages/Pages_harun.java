@@ -30,11 +30,17 @@ public class Pages_harun {
     @FindBy(xpath = "//input[@id='LIVEFEED_search']")
     public WebElement filterAndSearch;
 
+    @FindBy(xpath = "//div[@class='main-ui-filter-wrapper main-ui-filter-theme-rounded']")
+    public WebElement filterSearchWindow;
+
     @FindBy(xpath = "//button[contains(@class,'main-ui-filter-find')]")
     public WebElement searchSubmitButton;
 
     @FindBy(xpath = "//span[@class='main-ui-filter-sidebar-item-text'][text()!='Filter']")
     public List<WebElement> filterListElements;
+
+    @FindBy(xpath = "//span[.='Add field']")
+    public WebElement addFieldBtn;
 
 
 

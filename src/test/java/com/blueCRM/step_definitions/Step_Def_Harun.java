@@ -7,8 +7,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -31,6 +34,7 @@ public class Step_Def_Harun {
     public void user_clicks_on_filter_and_search_box() {
         page.filterAndSearch.click();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(page.filterSearchWindow));
     }
 
     @Then("the following default filters should be displayed")
@@ -38,6 +42,36 @@ public class Step_Def_Harun {
         List<WebElement> filterListElements = page.filterListElements;
         List<String> actualFilters = BrowserUtils.getElementsText(filterListElements);
 
-        Assert.assertTrue(actualFilters.containsAll(expectedFilters));
+        Assert.assertTrue(actualFilters.equals(expectedFilters));
     }
+
+    //AC2
+
+    @When("user clicks on the add field button")
+    public void user_clicks_on_the_add_field_button() {
+
+        page.addFieldBtn.click();
+    }
+
+    @When("user adds {string} search field")
+    public void user_adds_search_field(String fieldName) {
+        String xPath = "//span[@class='main-ui-control-field-label'][.='"+fieldName+"']/parent::div";
+        WebElement addElements = Driver.getDriver().findElement(By.xpath(xPath));
+
+        String xPath1= "//div[@class='main-ui-select-inner-label'][.='"+fieldName+"']/parent::div";
+        WebElement searchFieldElement = Driver.getDriver().findElement(By.xpath(xPath1));
+        String check = searchFieldElement.getAttribute("class");
+        boolean isSelected = check.endsWith("main-ui-checked");
+
+        if(!isSelected){
+            addElements.click();
+        }
+    }
+
+    @Then("Verify the {string} should be added to search field")
+    public void verify_the_should_be_added_to_search_field(String fieldName) {
+
+    }
+
+
 }
