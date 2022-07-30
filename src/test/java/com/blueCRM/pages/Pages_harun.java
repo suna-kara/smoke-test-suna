@@ -2,6 +2,7 @@ package com.blueCRM.pages;
 
 import com.blueCRM.utilities.Driver;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -30,7 +31,7 @@ public class Pages_harun {
     @FindBy(xpath = "//input[@id='LIVEFEED_search']")
     public WebElement filterAndSearch;
 
-    @FindBy(xpath = "//div[@class='main-ui-filter-wrapper main-ui-filter-theme-rounded']")
+    @FindBy(xpath = "//div[@class='main-ui-filter-sidebar']")
     public WebElement filterSearchWindow;
 
     @FindBy(xpath = "//button[contains(@class,'main-ui-filter-find')]")
@@ -42,8 +43,35 @@ public class Pages_harun {
     @FindBy(xpath = "//span[.='Add field']")
     public WebElement addFieldBtn;
 
+    @FindBy (xpath = "((//div[.='Date'])[2])")
+    public WebElement dateBox;
 
+    @FindBy (xpath = "//span[@class='main-ui-filter-field-restore-items']")
+    public WebElement restoreFieldLinks;
 
+    @FindBy(xpath = "//div[contains(@class,'feed-post-block')]")
+    public List<WebElement> searchResult;
+
+    @FindBy(xpath = "//span[@class='main-ui-filter-add-item']")
+    public WebElement saveFilterBtn;
+
+    @FindBy(xpath = "//input[@class='main-ui-filter-sidebar-edit-control']")
+    public WebElement filterNameEntryBox;
+
+    @FindBy(xpath = "//span[@class='ui-btn ui-btn-success main-ui-filter-field-button main-ui-filter-save']")
+    public WebElement saveChangesBtn;
+
+    @FindBy(xpath = "//span[@title='Configure filter']")
+    public WebElement configureFilters;
+
+    @FindBy(xpath = "(//span[@class='main-ui-item-icon main-ui-delete'])[2]")
+    public WebElement workDeleteBtn;
+
+    @FindBy(xpath = "//span[.='Reset to default']")
+    public WebElement resetToDefaultBtn;
+
+    @FindBy(xpath = "//span[text()='Continue']")
+    public WebElement continueResettingSearchFilters;
 
 
 
@@ -54,8 +82,6 @@ public class Pages_harun {
         this.loginBtn.click();
     }
 
-
-
     public static void sleep(int second){
         second *= 1000;
         try{
@@ -65,36 +91,43 @@ public class Pages_harun {
         }
     }
 
-    public static void verifyURLContains(String expectedInURL){
-        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedInURL));
+
+    public boolean isSearchFieldSelected(String field){
+        String xPath = "//div[@class='main-ui-select-inner-label'][text()='"+field+"']/parent::div";
+        WebElement searchFieldElement = Driver.getDriver().findElement(By.xpath(xPath));
+        String isChecked = searchFieldElement.getAttribute("class");
+        return isChecked.endsWith("main-ui-checked");
+    }
+
+    public void addSearchField(String fieldName){
+        String xPath = "//div[@class='main-ui-select-inner-label'][text()='"+fieldName+"']/parent::div";
+        WebElement searchFieldElement = Driver.getDriver().findElement(By.xpath(xPath));
+
+        if(!isSearchFieldSelected(fieldName)){
+            searchFieldElement.click();
+        }
+    }
+
+    public void removeSearchField(String fieldName){
+        String xPath = "//div[@class='main-ui-select-inner-label'][text()='"+fieldName+"']/parent::div";
+        WebElement searchFieldElement = Driver.getDriver().findElement(By.xpath(xPath));
+        if(isSearchFieldSelected(fieldName)){
+            searchFieldElement.click();
+        }
+    }
+
+    public boolean isDefaultFieldSelected(List<String> expectedDefaultFields){
+        String xpath = "//span[@class='main-ui-control-field-label']";
+        List<WebElement> actualFieldElements = Driver.getDriver().findElements(By.xpath(xpath));
+        List<String> actualFields = new ArrayList<>();
+        for (WebElement actualFieldElement : actualFieldElements) {
+            actualFields.add(actualFieldElement.getAttribute("title"));
+        }
+
+        return actualFields.containsAll(expectedDefaultFields);
     }
 
 
-
-    /**
-     * Waits for the provided element to be visible on the page
-     *
-     * @param element
-     * @param timeToWaitInSec
-     * @return
-     */
-    /*
-    public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
-        //WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
-        //return wait.until(ExpectedConditions.visibilityOf(element));
-    }
-
-    /**
-     * Waits for provided element to be clickable
-     *
-     * @param element
-     * @param timeout
-     * @return
-     */
-    //public static WebElement waitForClickablility(WebElement element, int timeout) {
-        //WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
-        //return wait.until(ExpectedConditions.elementToBeClickable(element));
-    //}
 
 
 

@@ -1,5 +1,6 @@
 package com.blueCRM.utilities;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -25,4 +26,6 @@ for given duration
         }
         return elemTexts;
     }
+
+
 }

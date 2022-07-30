@@ -1,4 +1,0 @@
-<<<<<<<<< Temporary merge branch 1
-file:src/test/resources/features/Suna.feature:10:14:22:29:35:40
-=========
->>>>>>>>> Temporary merge branch 2
