@@ -117,6 +117,27 @@ public class Step_Def_mehmet {
 
     // AC:3
 
+    @When("Users click on the date")
+    public void users_click_on_the_date() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @When("Users select one of the options they want which are inside of the date dropdown")
+    public void users_select_one_of_the_options_they_want_which_are_inside_of_the_date_dropdown() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @When("Users click search button")
+    public void users_click_search_button() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("Verify filters work as expected")
+    public void verify_filters_work_as_expected() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
 
 
 

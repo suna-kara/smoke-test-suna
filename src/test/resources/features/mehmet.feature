@@ -15,7 +15,6 @@ Feature: Activity Stream Page Filter And Search Functionality
       | ANNOUNCEMENTS |
       | WORKFLOWS     |
 
-  @mehmet
     #AC:2
   Scenario: Users should be able to add and remove fields.
     When Users click on filter and search input box
@@ -39,6 +38,7 @@ Feature: Activity Stream Page Filter And Search Functionality
       | Tag       |
       | Extranet  |
 
+  @mehmet
     #Ac:3
   Scenario: User should be able to search by specifying the Date.
     When Users click on filter and search input box
