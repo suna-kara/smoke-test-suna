@@ -1,4 +1,4 @@
-@harun
+
 Feature: Activity Stream Page Filter And Search Functionality
   User Story:As a user, I should be able to use "Filter and search" functionality on Active Stream.
 
@@ -70,7 +70,7 @@ Feature: Activity Stream Page Filter And Search Functionality
       | Author |
       | To     |
 
-
+  @harun
   Scenario: Resetting search filters to default
     When user clicks on filter and search box
     And user clicks on the configure filters button
