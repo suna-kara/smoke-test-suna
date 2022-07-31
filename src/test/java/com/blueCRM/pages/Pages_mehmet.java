@@ -43,4 +43,10 @@ public class Pages_mehmet {
     @FindBy(xpath = "//span[@class='main-ui-control-field-label']")
     public List<WebElement> currentList;
 
+    @FindBy(xpath = "//div[@class='main-ui-control-field']")
+    public WebElement dateElement;
+
+    @FindBy(xpath = "//span[@class='main-ui-select-name']")
+    public WebElement insideOfDateElement;
+
 }
