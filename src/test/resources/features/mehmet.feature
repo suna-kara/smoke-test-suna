@@ -37,3 +37,5 @@ Feature: Activity Stream Page Filter And Search Functionality
       | Tag       |
       | Extranet  |
 
+  Scenario: User should be able to search by specifying the Date,
+

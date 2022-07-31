@@ -68,16 +68,17 @@ public class Step_Def_mehmet {
         BrowserUtils.sleep(2);
     }
 
-
     @And("Users add all option in search field")
     public void users_add_search_field() {
                                                         //7 Element
         List<WebElement> currentElementList = pages_mehmet.noneSelectedOptions;
+
         for (WebElement each : currentElementList) {
-            each.click();
+            if (currentElementList.size()>=1){
+                each.click();
+            }continue;
+
         }
-
-
     }
 
     @Then("Verify that the all options is selected")
@@ -91,13 +92,15 @@ public class Step_Def_mehmet {
         System.out.println("Expected List: "+expectedList);
         Assert.assertTrue(actualElementList.containsAll(expectedList));
     }
+
     @And("Users remove all option in the search field")
     public void users_remove_all_option_in_the_search_field() {
         List<WebElement> currentElementList = pages_mehmet.selectedOptions;
         for (WebElement each : currentElementList) {
-            each.click();
+            if (currentElementList.size()>=1){
+                each.click();
+            }continue;
         }
-
     }
 
     @Then("Verify that the all options is not selected")
@@ -109,9 +112,10 @@ public class Step_Def_mehmet {
         }
         System.out.println("Actual Removed List: "+actualElementList);
         System.out.println("Expected Removed List: "+expectedList);
-
         Assert.assertTrue(actualElementList.containsAll(expectedList));
     }
+
+    // AC:3
 
 
 
