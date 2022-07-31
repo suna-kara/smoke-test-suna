@@ -1,6 +1,7 @@
 package com.blueCRM.pages;
 
 import com.blueCRM.utilities.Driver;
+import io.cucumber.java.zh_cn.假如;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -46,6 +47,10 @@ public class MessagePage_ZSS {
     @FindBy(css = "span[class='f-wrap']")
     public WebElement displayedFileNameText;
 
+
+    @FindBy(xpath = "//input[@class='files-name-edit-inp']")
+    public WebElement fileNameLink;
+
     @FindBy(xpath = "//span[@class='f-wrap']")
     public List<WebElement> listOfMultipleFileNameText;
 
@@ -66,11 +71,12 @@ public class MessagePage_ZSS {
     @FindBy(xpath = "//img[@class='files-preview']")
     public WebElement uploadedImagePreviewButton;
 
-    @FindBy(id= "bx-wufd-preview-img-wufdp_0.040459482325975404")
-    public WebElement imagePreviewPopUp;
+    @FindBy(xpath = "(//span[@class='feed-com-files-photo'])[1]//img")
+    public WebElement imageInActivityStream;
 
     @FindBy(xpath = "(//div[@class='feed-post-block feed-post-block-files feed-post-block-separator feed-post-block-short'])[1]//a[@class='feed-com-file-name']")
     public WebElement fileNameDisplayedAfterSendingMessage;
+
 
     @FindBy(xpath = "(//div[@class='feed-post-block feed-post-block-files feed-post-block-separator feed-post-block-short'])[1]//a[@class='feed-add-post-destination-new']")
     public WebElement emailNameDisplayedAfterSendingMessage;

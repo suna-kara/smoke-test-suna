@@ -133,26 +133,20 @@ public class StepDefinitions_ZSS {
         mesaggePage.uploadFilesAndImages.sendKeys(filePath_jpeg);
         BrowserUtils.sleep(3);
     }
-
+String imgName;
     @And("user uploads a file in PNG format")
     public void userUploadsAFileInPNGFormat() {
         BrowserUtils.sleep(3);
         mesaggePage.uploadFilesAndImages.sendKeys(filePath_png);
         BrowserUtils.sleep(3);
+        imgName= mesaggePage.displayedFileNameText.getText();
     }
 
-    @And("user clicks on the uploaded file")
-    public void userClicksOnTheUploadedFile() {
-        mesaggePage.uploadedImagePreviewButton.click();
-        BrowserUtils.sleep(3);
-    }
-
-    @Then("user should be able to display the uploaded picture")
+    @Then("user should be able to display the uploaded picture in Activity Stream")
     public void userShouldBeAbleToDisplayTheUploadedPicture() {
-       WebDriverWait wait= new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(5));
-       wait.until(ExpectedConditions.presenceOfElementLocated(By.id("bx-wufd-preview-img-wufdp_0.040459482325975404")));
-        assertTrue(mesaggePage.imagePreviewPopUp.isDisplayed());
-
+        BrowserUtils.sleep(5);
+        assertTrue(mesaggePage.imageInActivityStream.getAttribute("data-bx-title").contains(imgName)
+        || imgName.contains(mesaggePage.imageInActivityStream.getAttribute("data-bx-title")));
 
     }
 
