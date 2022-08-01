@@ -5,6 +5,7 @@ import com.blueCRM.utilities.BrowserUtils;
 import com.blueCRM.utilities.ConfigurationReader;
 import com.blueCRM.utilities.Driver;
 import com.github.javafaker.Faker;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -72,5 +73,49 @@ public class step_def_irem {
 
         Driver.closeDriver();
     }
+
+    @When("Users should click link button and should be able to write the {string} and {string}")
+    public void usersShouldClickLinkButtonAndShouldBeAbleToWriteTheAnd(String string1, String string2) {
+
+        BrowserUtils.sleep(2);
+        page.linkButton.click();
+        BrowserUtils.sleep(3);
+        page.linktextBox.sendKeys(string1);
+
+        BrowserUtils.sleep(2);
+
+
+
+        BrowserUtils.sleep(2);
+       page.linkUrlBox.click();
+        page.linkUrlbox.sendKeys(string2);
+        BrowserUtils.sleep(2);
+
+
+
+    }
+
+    @And("User,After write a link, should click save button")
+    public void userAfterWriteALinkShouldClickSaveButton() {
+        BrowserUtils.sleep(2);
+        page.saveButton.click();
+    }
+
+    @Then("Verification Users should click send button and user should be see in message")
+    public void Usersshouldclicksendbuttonandusershouldbseeinmessage() {
+
+        BrowserUtils.sleep(2);
+        page.sendButton.click();
+
+
+        BrowserUtils.sleep(5);
+
+        Assert.assertTrue(page.linkInMessage.isDisplayed());
+
+
+        Driver.closeDriver();
+
+    }
+
 
 }
