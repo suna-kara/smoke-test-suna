@@ -52,19 +52,25 @@ public class step_def_irem {
     }
     @When("User, Should be click Add Mention button.")
     public void user_should_be_click_add_mention_button() {
-
+       page.addMentionButton.click();
+        BrowserUtils.sleep(2);
     }
     @When("User should be click Emmployess and departments button")
     public void user_should_be_click_emmployess_and_departments_button() {
-
+        page.employessanddepartmentsButton.click();
     }
     @Then("User should be add deparmants employess")
     public void user_should_be_add_deparmants_employess() {
-
+        BrowserUtils.sleep(2);
+        page.departmentEmployees.click();
+        BrowserUtils.sleep(2);
     }
     @Then("Verification The chosen departments employess should be see in")
     public void verification_the_chosen_departments_employess_should_be_see_in() {
+        BrowserUtils.sleep(3);
+        Assert.assertTrue(page.selectedEmployess.isDisplayed());
 
+        Driver.closeDriver();
     }
 
 }
