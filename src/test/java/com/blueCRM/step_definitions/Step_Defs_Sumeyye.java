@@ -232,5 +232,6 @@ public class Step_Defs_Sumeyye {
     @Then("the star area becomes orange")
     public void theStarAreaBecomesOrange() {
    // Assert.assertTrue(page.orangeStar.isDisplayed());
+        //hello
     }
 }
