@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: Activity Stream Page Filter And Search Functionality #1
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 75.937 s - in Activity Stream Page Filter And Search Functionality #1

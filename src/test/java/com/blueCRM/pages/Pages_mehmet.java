@@ -45,14 +45,14 @@ public class Pages_mehmet {
     @FindBy(xpath = "//div[@class='main-ui-control-field']")
     public WebElement dateElement;
 
-    @FindBy(xpath = "//span[@class='main-ui-select-name']")
-    public WebElement insideOfDateElement;
+    @FindBy(xpath = "//div[@class='main-ui-select-inner-item-element']/..")
+    public List<WebElement> dateList;
 
-    @FindBy(xpath = "//button[@class='ui-btn ui-btn-primary ui-btn-icon-search main-ui-filter-field-button main-ui-filter-find']")
+    @FindBy(xpath = "//button[@class='ui-btn ui-btn-primary ui-btn-icon-search main-ui-filter-field-button  main-ui-filter-find']")
     public WebElement searchButton;
 
     @FindBy(xpath = "//div[@class='feed-time']")
-    public WebElement timeFilterTitle;
+    public List<WebElement> filterTitle;
 
     @FindBy(xpath = "//span[@class='main-ui-filter-add-item']")
     public WebElement saveFilterButton;
@@ -83,6 +83,17 @@ public class Pages_mehmet {
 
     @FindBy(xpath = "//span[.='Continue']")
     public WebElement continueButton;
+
+    @FindBy(xpath = "//div[@class='main-ui-control main-ui-multi-select']")
+    public WebElement typeElement;
+
+    @FindBy(xpath = "//div[@class='popup-multiselect-content']/div")
+    public List<WebElement> typeList;
+
+    @FindBy(xpath = "//button[@class='ui-btn ui-btn-lg ui-btn-success']")
+    public List<WebElement> readBy;
+
+
 
 
 
