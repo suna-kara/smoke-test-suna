@@ -9,12 +9,11 @@ Feature: Interacting with employees on posts
     And user logs out
 
     When reviewer logs in
-    When user clicks on the comment box
     And user writes review comment
-   And user logs out
+    And user logs out
 
 
-    Scenario: User should be able to make a comment, like, or unfollow other employees' posts.
+  Scenario: User should be able to make a comment, like, or unfollow other employees' posts.
     When user is on the login page
     When User Writes a comment on a post
 
@@ -24,22 +23,14 @@ Feature: Interacting with employees on posts
     When user clicks on unfollow
     Then follow must be displayed
 
-    When user clicks on the comment box
-    And user writes something
-    And user clicks on send
-    Then the comment appears on the post thread
-
-
   Scenario: User should be able to make a comment and like another reviewer's post
     When user is on the login page
     When user clicks on like on review
     Then a thumbs up appears on the right of the post
 
-    When user clicks on reply on review
-    And user writes something else
-    And user clicks on send
-    Then the review comment appears below
-
+    When user clicks on reviewer's comment box
+    And user writes something
+    Then the comment appears on the post thread
 
   Scenario: User should be able to like and reply to their own comment.
     When user is on the login page
@@ -48,7 +39,6 @@ Feature: Interacting with employees on posts
 
     When user clicks on reply on own comment
     And user writes something on own comment
-    And user clicks on send
     Then the own comment appears on the post thread
 
 
@@ -59,17 +49,15 @@ Feature: Interacting with employees on posts
     And user clicks on view comment
     Then user is directed to conversations page
 
-    And user clicks on more below the comment
+    When user clicks on more below the comment
     And user clicks on copy link
     Then a tick appears next to the option
 
-
+    When user clicks on more below the comment
     And user clicks on edit
     Then comment box opens
 
- When user clicks on cancel
-    When user is on the login page
-    And user clicks on more below the comment
+    When user clicks on more below the comment
     And user clicks on delete
     Then the comment disappears
 
