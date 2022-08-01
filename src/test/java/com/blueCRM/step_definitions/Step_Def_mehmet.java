@@ -10,7 +10,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,12 +25,14 @@ import java.util.List;
 public class Step_Def_mehmet {
     Pages_mehmet pages_mehmet = new Pages_mehmet();
     Faker faker = new Faker();
+    Actions actions = new Actions(Driver.getDriver());
+    JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 
     @Given("User is on the blueCRM login page")
     public void user_is_on_the_blueCRM_login_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         pages_mehmet.usernameInputBox.click();
-        String email = "hr"+faker.numerify("16")+"@cybertekschool.com";
+        String email = "hr"+faker.numerify("53")+"@cybertekschool.com";
         pages_mehmet.usernameInputBox.sendKeys(email);
         BrowserUtils.sleep(1);
         pages_mehmet.passwordInputBox.click();
@@ -56,7 +62,7 @@ public class Step_Def_mehmet {
                 textOfListedElements.add(each.getText());
             }
             System.out.println(textOfListedElements);
-            Assert.assertTrue(textOfListedElements.equals(expectedFilters));
+            Assert.assertTrue(textOfListedElements.containsAll(expectedFilters));
         }
     }
 
@@ -70,7 +76,7 @@ public class Step_Def_mehmet {
 
     @And("Users add all option in search field")
     public void users_add_search_field() {
-                                                        //7 Element
+                                                        //3 Element
         List<WebElement> currentElementList = pages_mehmet.noneSelectedOptions;
 
         for (WebElement each : currentElementList) {
@@ -119,23 +125,94 @@ public class Step_Def_mehmet {
 
     @When("Users click on the date")
     public void users_click_on_the_date() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(pages_mehmet.dateElement));
+        pages_mehmet.dateElement.click();
     }
+
     @When("Users select one of the options they want which are inside of the date dropdown")
     public void users_select_one_of_the_options_they_want_which_are_inside_of_the_date_dropdown() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        BrowserUtils.sleep(2);
+        actions.sendKeys(Keys.ARROW_DOWN);
+        actions.sendKeys(Keys.ENTER);
     }
+    /*
     @When("Users click search button")
     public void users_click_search_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        pages_mehmet.searchButton.click();
     }
+
+     */
     @Then("Verify filters work as expected")
     public void verify_filters_work_as_expected() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        String expectedTitle = "Yesterday";
+        String actualTitle =pages_mehmet.timeFilterTitle.getText();
+        Assert.assertTrue(actualTitle.contains("yesterday"));
+    }
+
+    // AC:5
+    @When("Users click on the save filter button")
+    public void users_click_on_the_save_filter_button() {
+        pages_mehmet.saveFilterButton.click();
+    }
+    @When("Users enter new {string}")
+    public void users_enter_new(String filterName) {
+        pages_mehmet.filterInputBox.sendKeys(filterName);
+    }
+    @When("Users click on save button")
+    public void users_click_on_save_button() {
+        pages_mehmet.saveButton.click();
+    }
+    @Then("Verify the {string} is displayed")
+    public void verify_the_is_displayed(String filterName) {
+        List<WebElement> listOfFilter = pages_mehmet.filterNameList;
+        List<String> listOfFilterNames = new ArrayList<>();
+        for (WebElement each : listOfFilter) {
+            listOfFilterNames.add(each.getText());
+        }
+        Assert.assertTrue(listOfFilterNames.contains(filterName));
+    }
+
+    // AC:6
+
+    @When("Users click restore default fields link")
+    public void users_click_restore_default_fields_link() {
+        pages_mehmet.restoreDefaultFields.click();
+    }
+
+    @Then("Verify that the list is displayed as default.")
+    public void verify_that_the_list_is_displayed_as_default(List<String> expectedList) {
+        List<WebElement> currentList = pages_mehmet.currentList;
+        List<String> actualList = new ArrayList<>();
+        for (WebElement each : currentList) {
+            actualList.add(each.getText());
+        }
+
+        Assert.assertEquals(expectedList,actualList);
+
+    }
+
+    //AC:7
+
+    @When("Users click on configure filter button")
+    public void users_click_on_configure_filter_button() {
+        pages_mehmet.configureFilters.click();
+    }
+    @When("Users delete work filter")
+    public void users_delete_work_filter() {
+        pages_mehmet.workDeleteButton.click();
+    }
+    @When("Users click the save button")
+    public void users_click_the_save_button() {
+        pages_mehmet.saveButton.click();
+    }
+    @When("Users click to reset the default button")
+    public void users_click_to_reset_the_default_button() {
+        pages_mehmet.resetToDefault.click();
+    }
+    @When("Users click to continue button")
+    public void users_click_to_continue_button() {
+        pages_mehmet.continueButton.click();
     }
 
 
