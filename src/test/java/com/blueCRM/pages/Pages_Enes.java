@@ -91,7 +91,7 @@ public  class Pages_Enes {
     @FindBy(xpath = "//span[@class='popup-window-close-icon']")
     public WebElement deletesymbolInEmployessMenu;
 
-    @FindBy(id = "feed-post-more-2256")
+    @FindBy(xpath = "(//span[@class='feed-post-more-text'])[1]")
     public WebElement MoreButton;
 
     @FindBy(xpath = "(//span[.='Delete'])[2]")

@@ -10,6 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,7 +30,6 @@ public class step_def_Enes {
 
     @Given("user is on the library login page")
     public void user_is_on_the_library_login_page() {
-        Driver.getDriver().get("https://qa.azulcrm.com/");
 
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 
@@ -264,8 +264,16 @@ public class step_def_Enes {
     @And("User click more button than click delete button")
     public void userClickMoreButtonThanClickDeleteButton() {
 
+        BrowserUtils.sleep(2);
 
         pages_enes.MoreButton.click();
+
+        BrowserUtils.sleep(2);
+
+        pages_enes.DeleteButton.click();
+
+        Alert a = Driver.getDriver().switchTo().alert();
+        a.accept();
 
     }
 

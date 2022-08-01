@@ -37,8 +37,8 @@ Feature:send message
     And That users send a message by fiiling in the mandatory fields
     And user clicks cancel button
 
-
   @wipEnes
+
   Scenario:AC04-TC04 Verify User should be able to delete messages after sending.
     When user clicks on the message tab
     And user clicks on the topic button
