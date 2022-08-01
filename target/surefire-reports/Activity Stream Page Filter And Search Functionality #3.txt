@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: Activity Stream Page Filter And Search Functionality #3
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 11.245 s <<< FAILURE! - in Activity Stream Page Filter And Search Functionality #3
+Activity Stream Page Filter And Search Functionality #3.User should be able to search by specifying the Date.  Time elapsed: 11.245 s  <<< FAILURE!
+java.lang.AssertionError
+

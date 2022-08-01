@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.blueCRM.runners.CukesRunner
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in com.blueCRM.runners.CukesRunner
+com.blueCRM.runners.CukesRunner.initializationError  Time elapsed: 0.001 s  <<< ERROR!
+io.cucumber.core.gherkin.FeatureParserException: 
+Failed to parse resource at: file:///C:/Users/Mehmet/IdeaProjects/BlueCRMGroupSeven/src/test/resources/features/mehmet.feature
+(49:5): expected: #EOF, #TableRow, #StepLine, #TagLine, #ExamplesLine, #ScenarioLine, #RuleLine, #Comment, #Empty, got 'vThen Verify filters work as expected'
+
