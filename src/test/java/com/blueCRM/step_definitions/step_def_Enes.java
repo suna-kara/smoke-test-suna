@@ -31,17 +31,17 @@ public class step_def_Enes {
     @Given("user is on the library login page")
     public void user_is_on_the_library_login_page() {
 
-        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("url2"));
 
         BrowserUtils.sleep(1);
 
-        pages_enes.usernamebox.sendKeys(ConfigurationReader.getProperty("username"));
-
+        String email = "hr"+faker.numerify("2#")+"@cybertekschool.com";
+        pages_enes.usernamebox.sendKeys(email);
         BrowserUtils.sleep(1);
+
         pages_enes.passwordbox.sendKeys(ConfigurationReader.getProperty("password"));
         BrowserUtils.sleep(1);
         pages_enes.loginbutton.click();
-
 
 
 
@@ -49,6 +49,8 @@ public class step_def_Enes {
     @When("user clicks on the message tab")
     public void user_clicks_on_the_message_tab() {
 
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(pages_enes.messageTab));
         BrowserUtils.sleep(2);
         pages_enes.messageTab.click();
 
@@ -145,12 +147,17 @@ public class step_def_Enes {
 
 
 
+
     }
 
 
     @Then("Verify User should be sees message delivery as all employees by default")
     public void verifyUserShouldBeSeesMessageDeliveryAsAllEmployeesByDefault() {
 
+
+        Driver.getDriver().switchTo().parentFrame();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(pages_enes.allEmployess));
         Assert.assertTrue(pages_enes.allEmployess.isDisplayed());
 
     }
@@ -200,6 +207,9 @@ public class step_def_Enes {
     public void verifyMessageDeliveryMustHaveBeenModified() {
 
         assertTrue(pages_enes.selectedEmployess1.isDisplayed());
+
+        BrowserUtils.sleep(3);
+
         assertTrue(pages_enes.selectedEmployess3.isDisplayed());
 
 
