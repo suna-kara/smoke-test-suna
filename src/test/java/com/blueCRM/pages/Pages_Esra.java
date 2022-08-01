@@ -1,4 +1,4 @@
 package com.blueCRM.pages;
 
-public class BasePage {
+public class Pages_Esra {
 }

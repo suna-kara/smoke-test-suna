@@ -1,7 +1,11 @@
+
 Feature: As a user, I should be able to upload files and pictures as messages
 
   Background:
-    Given User is expected to login
+    Given User is expected to login with valid credentials
+    |username |hr35@cybertekschool.com|
+    |password |UserUser               |
+
 
 
   Scenario:User should be able to upload a file by upload files and images section
@@ -34,13 +38,13 @@ Feature: As a user, I should be able to upload files and pictures as messages
     And user uploads a file in PNG format
     Then the files should be sucsessfully uploaded
 
-  @wip
+@zeynep
   Scenario: User should be able to display the uploaded picture itself in Activity Stream.
     When user clicks on the send message tab
     And user clicks on the uploadFile button
-    And user uploads a file in JPEG format
-    And user clicks on the uploaded file
-    Then user should be able to display the uploaded picture
+    And user uploads a file in PNG format
+    And user clicks the send button
+    Then user should be able to display the uploaded picture in Activity Stream
 
 
  Scenario: User should be able to insert the files and images into the text
@@ -63,6 +67,7 @@ Feature: As a user, I should be able to upload files and pictures as messages
     Then user should be able to click the delete button
     Then the files should be removed after clicking the delete button
 
+
   Scenario: User should be able to rename the file before sending it
     When user clicks on the send message tab
     And user clicks on the uploadFile button
@@ -71,4 +76,16 @@ Feature: As a user, I should be able to upload files and pictures as messages
     Then user should be able to rename the file by using the rename button
 
 
-  Scenario: User should be able to remove files and images at any time before sending.
+  Scenario: User should be able to send files to all employees
+    When user clicks on the send message tab
+    And user clicks on the uploadFile button
+    And user uploads a file from upload files and images section
+    And user clicks the send button
+    Then message should be sent
+
+  Scenario: User should be able to send files to a specific employee
+    When user clicks on the send message tab
+    And user clicks on the uploadFile button
+    And user uploads a file from upload files and images section
+    And user chooses an employee in the employee list and clicks send button
+    Then message should be sent to the selected employee
