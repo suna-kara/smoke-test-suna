@@ -70,6 +70,7 @@ public class Step_Def_Harun {
     public void user_removes_from_search_field(String fieldName) {
         page.removeSearchField(fieldName);
     }
+
     @Then("the {string} should be removed")
     public void the_should_be_removed(String fieldName) {
         Assert.assertFalse("Verify the "+fieldName+" is selected",page.isSearchFieldSelected(fieldName));
@@ -133,9 +134,6 @@ public class Step_Def_Harun {
         wait.until(ExpectedConditions.visibilityOf(page.filterSearchWindow));
         page.continueResettingSearchFilters.click();
     }
-
-
-
 
 
 }
