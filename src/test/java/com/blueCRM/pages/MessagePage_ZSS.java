@@ -1,5 +1,6 @@
 package com.blueCRM.pages;
 
+import com.blueCRM.utilities.ConfigurationReader;
 import com.blueCRM.utilities.Driver;
 import io.cucumber.java.zh_cn.假如;
 import org.openqa.selenium.WebElement;
@@ -12,6 +13,14 @@ public class MessagePage_ZSS {
     public MessagePage_ZSS(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
+    @FindBy(className = "login-inp")
+    public WebElement userNameInput;
+
+    @FindBy(name = "USER_PASSWORD")
+    public WebElement userPasswordInput;
+
+    @FindBy(css = ".login-btn")
+    public WebElement loginButton;
 
     @FindBy(xpath = "//div[@id='microoPostFormLHE_blogPostForm_inner']")
     public WebElement messageBox;
@@ -97,6 +106,13 @@ public class MessagePage_ZSS {
         } catch (org.openqa.selenium.NoSuchElementException e) {
             return false;
         }
+    }
+
+    public void login(){
+        Driver.getDriver().get("https://qa.azulcrm.com/");
+        userNameInput.sendKeys(ConfigurationReader.getProperty("username"));
+        userPasswordInput.sendKeys(ConfigurationReader.getProperty("password"));
+        loginButton.click();
     }
 
 }
