@@ -6,10 +6,13 @@ import com.blueCRM.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 public class Step_Defs_suna {
      BasePage_Suna page=new BasePage_Suna();
+     WebElement checkbox;
     @Given("user is on homepage")
     public void user_is_on_homepage() {
        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
@@ -19,19 +22,21 @@ public class Step_Defs_suna {
     }
     @Given("user clicks on Task")
     public void user_clicks_on_task() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       page.clickTask.click();
     }
     @When("the user clicks on the High Priority check box")
     public void the_user_clicks_on_the_high_priority_check_box() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        page.ThingsToDo.click();
+        System.out.println("page = " + checkbox.isSelected());
+        checkbox=Driver.getDriver().findElement(By.id("tasks-task-priority-cb"));
+        page.CheckBtn.click();
+
+
     }
     @Then("the  High Priority check box should be selected")
     public void the_high_priority_check_box_should_be_selected() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-
+        System.out.println("checkbox = " + checkbox.isSelected());
     }
 
     @When("HR  user adds first participant")
