@@ -2,7 +2,7 @@
 Feature: Activity Stream Page Filter And Search Functionality
 	User story: As a user, I should be able to use "Filter and search" functionality on Active Stream.
 
-	Background:For the scenarios in the feature file, user is expected to be on login page
+	Background: For the scenarios in the feature file, user is expected to be on login page
 		#@LUEC-499
 		Given User is on the blueCRM login page
 		
@@ -43,6 +43,26 @@ Feature: Activity Stream Page Filter And Search Functionality
 		      | Favorites |
 		      | Tag       |
 		      | Extranet  |	
+
+	#Acceptance Criteria:
+	#3. User should be able to search by specifying the Date.
+	@LUEC-506
+	Scenario: User should be able to search by specifying the Date.
+		When Users click on filter and search input box
+		    And Users click on the date
+		    And Users select one of the options they want which are inside of the date dropdown
+		    And Users click search button
+		    Then Verify date filters work as expected	
+
+	#Acceptance Criteria:
+	#4. User should be able to search by selecting single or multiple types.
+	@LUEC-507
+	Scenario: User should be able to search by selecting single or multiple types.
+		When Users click on filter and search input box
+		    And Users click on the type dropdown
+		    And Users select one of the options they want which are inside of the type dropdown
+		    And Users click search button
+		    Then Verify type filters work as expected	
 
 	#Acceptance Criteria:
 	#5. User should be able to search by specifying the Date.

@@ -41,15 +41,21 @@ Feature: Activity Stream Page Filter And Search Functionality
 
 
     #Ac:3
- # Scenario: User should be able to search by specifying the Date.
-    #When Users click on filter and search input box
-    #And Users click on the date
-    #And Users select one of the options they want which are inside of the date dropdown
-    #And Users click search button
-    #Then Verify filters work as expected
+  Scenario: User should be able to search by specifying the Date.
+    When Users click on filter and search input box
+    And Users click on the date
+    And Users select one of the options they want which are inside of the date dropdown
+    And Users click search button
+    Then Verify date filters work as expected
 
     #Ac:4
-  #Scenario: User should be able to search by selecting single or multiple types.
+
+  Scenario: User should be able to search by selecting single or multiple types.
+    When Users click on filter and search input box
+    And Users click on the type dropdown
+    And Users select one of the options they want which are inside of the type dropdown
+    And Users click search button
+    Then Verify type filters work as expected
 
 
     #Ac:5
@@ -65,7 +71,6 @@ Feature: Activity Stream Page Filter And Search Functionality
       | MEHMET07   |
       | MEHMET53   |
 
-
     #Ac:6
   Scenario: User should be able to restore the default field.
     When Users click on filter and search input box
@@ -77,8 +82,6 @@ Feature: Activity Stream Page Filter And Search Functionality
       | Type      |
       | Author    |
       | To        |
-
-
 
     #Ac:7
   Scenario: User should be able to reset filters to default.
@@ -95,7 +98,3 @@ Feature: Activity Stream Page Filter And Search Functionality
       | MY ACTIVITY   |
       | ANNOUNCEMENTS |
       | WORKFLOWS     |
-
-
-
-
