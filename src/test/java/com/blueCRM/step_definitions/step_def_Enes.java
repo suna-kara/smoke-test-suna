@@ -11,6 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -55,8 +56,12 @@ public class step_def_Enes {
     @When("user clicks on the topic button")
     public void user_clicks_on_the_topic_button() {
 
-        BrowserUtils.sleep(2);
-        pages_enes.TopicButton.click();
+
+        if (!(pages_enes.TopicBox.isDisplayed())){
+            BrowserUtils.sleep(2);
+            pages_enes.TopicButton.click();
+        }
+
 
 
     }
@@ -65,7 +70,12 @@ public class step_def_Enes {
 
 
         BrowserUtils.sleep(2);
-        pages_enes.TopicBox.sendKeys(faker.name().title());
+
+        if ((pages_enes.TopicBox.isDisplayed())){
+            pages_enes.TopicBox.sendKeys(faker.name().title());
+        }
+
+
 
 
 
@@ -124,6 +134,14 @@ public class step_def_Enes {
 
         BrowserUtils.sleep(2);
 
+        WebDriverWait wait1 = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait1.until(ExpectedConditions.elementToBeClickable(pages_enes.deletesymbolInEmployessMenu));
+        pages_enes.deletesymbolInEmployessMenu.click();
+
+        pages_enes.sendButton.click();
+
+
+
 
 
 
@@ -181,7 +199,75 @@ public class step_def_Enes {
     @Then("Verify Message delivery must have been modified")
     public void verifyMessageDeliveryMustHaveBeenModified() {
 
+        assertTrue(pages_enes.selectedEmployess1.isDisplayed());
+        assertTrue(pages_enes.selectedEmployess3.isDisplayed());
 
 
+    }
+
+    @And("That users send a message by fiiling in the mandatory fields")
+    public void thatUsersSendAMessageByFiilingInTheMandatoryFields() {
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(pages_enes.addMoreButton));
+        pages_enes.addMoreButton.click();
+
+        BrowserUtils.sleep(2);
+
+        pages_enes.employessanddepartmentsButton.click();
+
+        BrowserUtils.sleep(2);
+
+        pages_enes.departmentEmployees.click();
+
+        BrowserUtils.sleep(2);
+
+        pages_enes.departmentEmployees2.click();
+
+        BrowserUtils.sleep(2);
+
+        assertTrue(pages_enes.selectedEmployess1.isDisplayed());
+        assertTrue(pages_enes.selectedEmployess2.isDisplayed());
+
+        BrowserUtils.sleep(2);
+
+        pages_enes.deletesymbol1.click();
+
+        BrowserUtils.sleep(3);
+
+
+
+        pages_enes.deletesymbol1.click();
+
+        BrowserUtils.sleep(2);
+
+        WebDriverWait wait1 = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait1.until(ExpectedConditions.elementToBeClickable(pages_enes.deletesymbolInEmployessMenu));
+        pages_enes.deletesymbolInEmployessMenu.click();
+
+
+    }
+
+    @And("user clicks cancel button")
+    public void userClicksCancelButton() {
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(pages_enes.cancelButton));
+        pages_enes.cancelButton.click();
+
+
+
+
+    }
+
+
+    @And("User click more button than click delete button")
+    public void userClickMoreButtonThanClickDeleteButton() {
+
+
+    }
+
+    @Then("Verify The message mustn't display on screen")
+    public void verifyTheMessageMustnTDisplayOnScreen() {
     }
 }

@@ -70,6 +70,12 @@ public  class Pages_Enes {
     @FindBy(xpath = "(//span[@class='feed-add-post-destination-text'])[1]")
     public WebElement selectedEmployess3;
 
+    @FindBy(xpath = "//button[@id='blog-submit-button-cancel']")
+    public WebElement cancelButton;
+
+
+    @FindBy(xpath = "//button[@id='blog-submit-button-save']")
+    public WebElement sendButton;
 
 
 
@@ -81,6 +87,20 @@ public  class Pages_Enes {
 
     @FindBy(className = "feed-add-post-destination-text")
     public WebElement allEmployess;
+
+    @FindBy(xpath = "//span[@class='popup-window-close-icon']")
+    public WebElement deletesymbolInEmployessMenu;
+
+    @FindBy(id = "feed-post-more-2256")
+    public WebElement MoreButton;
+
+    @FindBy(xpath = "(//span[.='Delete'])[2]")
+    public WebElement DeleteButton;
+
+
+
+
+
 
 
 
