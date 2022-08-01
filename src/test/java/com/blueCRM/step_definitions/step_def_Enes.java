@@ -265,6 +265,8 @@ public class step_def_Enes {
     public void userClickMoreButtonThanClickDeleteButton() {
 
 
+        pages_enes.MoreButton.click();
+
     }
 
     @Then("Verify The message mustn't display on screen")
