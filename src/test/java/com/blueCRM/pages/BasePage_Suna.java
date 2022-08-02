@@ -23,4 +23,10 @@ public class BasePage_Suna {
     @FindBy(xpath = "//span[.='Task']")
     public  WebElement clickTask;
 
+    @FindBy(name = "ACTION[0][ARGUMENTS][data][TITLE]")
+    public  WebElement ThingsToDo;
+
+    @FindBy(id = "tasks-task-priority-cb")
+    public  WebElement CheckBtn;
+
 }
