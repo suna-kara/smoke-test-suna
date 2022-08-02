@@ -70,6 +70,8 @@ Feature: Interacting with employees on posts
     When user is on the login page
     When user clicks on reviewer's name
     Then the reviewer's name is displayed
+
+  Scenario:  User should be able to add others' posts to favourites by clicking on the Star icon.
     When user clicks on the star
     Then the star area becomes orange
 

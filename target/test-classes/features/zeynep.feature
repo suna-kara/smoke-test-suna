@@ -43,7 +43,7 @@ Feature: As a user, I should be able to upload files and pictures as messages
     When user clicks on the send message tab
     And user clicks on the uploadFile button
     And user uploads a file in PNG format
-    And user clicks the send button
+    And user clicks the send buttonn
     Then user should be able to display the uploaded picture in Activity Stream
 
 
@@ -80,7 +80,7 @@ Feature: As a user, I should be able to upload files and pictures as messages
     When user clicks on the send message tab
     And user clicks on the uploadFile button
     And user uploads a file from upload files and images section
-    And user clicks the send button
+    And user clicks the send buttonn
     Then message should be sent
 
   Scenario: User should be able to send files to a specific employee
