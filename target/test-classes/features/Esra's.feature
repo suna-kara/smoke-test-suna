@@ -8,7 +8,6 @@ Feature:Message Box functionality
 
 
 #Done1
-
   Scenario:User should be able to add mentions about only department employees.
     Given user should be displaying the "MESSAGE" tab from the top menu .
     And user  hits the message link from the top menu
@@ -29,19 +28,19 @@ Feature:Message Box functionality
     And user passes the link text into  text input box
     And user passes the "https://www.youtube.com/watch?v=HgeWwVCatk4&t=678s" into the  link input box
     And user clicks on save button
-    And user hits the send button
+    And user clicks the send button
     When user should verify that the link sent as a post under Activity Stream
 
 
 
 #3Failed
-  @Esra
+
   Scenario Outline:User should be able to insert YouTube and Vimeo video.
     Given user  hits the message link from the top menu
     When user hover over the insert video icon and clicks it
     And user passes the youtube "<links>"
     And user clicks on save button
-    And user hits the send button
+    And user clicks the send button
     Then user should verify that the link video is attached under Activity Stream
 
     Examples: youtube links
@@ -55,7 +54,7 @@ Feature:Message Box functionality
     When user hover over the insert video icon and clicks it
     And user passes the youtube "<links>"
     And user clicks on save button
-    And user hits the send button
+    And user clicks the send button
     Then user should verify that the link video is attached under Activity Stream
 
     Examples: vimeo links
@@ -80,9 +79,10 @@ Feature:Message Box functionality
     And user observes the tag input box
     And user types the tag input message
     And user clicks the add button below the input box
-    And user hits the send button
+    And user clicks the send button
     Then user displays the added tag below Activity Stream
 #6
+  @Esra
   Scenario: User should be able to remove tags before sending the message
     Given user  hits the message link from the top menu
     When user hits the quote icon and clicks it

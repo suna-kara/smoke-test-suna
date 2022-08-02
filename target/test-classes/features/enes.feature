@@ -1,4 +1,4 @@
-
+@wipEnes
 Feature:send message
   User Story:
   US01_As a user, I should be able to send messages by clicking on Message tab under Active Stream
@@ -29,6 +29,8 @@ Feature:send message
 
 
 
+
+
   Scenario:AC03-TC03 Verify User should be able to cancel sending messages at any time before sending.
     When user clicks on the message tab
     And user clicks on the topic button
@@ -37,7 +39,6 @@ Feature:send message
     And That users send a message by fiiling in the mandatory fields
     And user clicks cancel button
 
-  @wipEnes
 
   Scenario:AC04-TC04 Verify User should be able to delete messages after sending.
     When user clicks on the message tab

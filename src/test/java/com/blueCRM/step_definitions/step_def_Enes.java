@@ -24,24 +24,24 @@ public class step_def_Enes {
 
     Pages_Enes pages_enes = new Pages_Enes();
     Faker faker = new Faker();
-
+    String lorem;
 
 
 
     @Given("user is on the library login page")
     public void user_is_on_the_library_login_page() {
 
-        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("url2"));
 
         BrowserUtils.sleep(1);
 
-        pages_enes.usernamebox.sendKeys(ConfigurationReader.getProperty("username"));
-
+        String email = "hr"+faker.numerify("2#")+"@cybertekschool.com";
+        pages_enes.usernamebox.sendKeys(email);
         BrowserUtils.sleep(1);
+
         pages_enes.passwordbox.sendKeys(ConfigurationReader.getProperty("password"));
         BrowserUtils.sleep(1);
         pages_enes.loginbutton.click();
-
 
 
 
@@ -49,6 +49,8 @@ public class step_def_Enes {
     @When("user clicks on the message tab")
     public void user_clicks_on_the_message_tab() {
 
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(pages_enes.messageTab));
         BrowserUtils.sleep(2);
         pages_enes.messageTab.click();
 
@@ -58,7 +60,6 @@ public class step_def_Enes {
 
 
         if (!(pages_enes.TopicBox.isDisplayed())){
-            BrowserUtils.sleep(2);
             pages_enes.TopicButton.click();
         }
 
@@ -70,6 +71,8 @@ public class step_def_Enes {
 
 
         BrowserUtils.sleep(2);
+
+
 
         if ((pages_enes.TopicBox.isDisplayed())){
             pages_enes.TopicBox.sendKeys(faker.name().title());
@@ -91,7 +94,8 @@ public class step_def_Enes {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(pages_enes.textBox));
 
-        pages_enes.textBox.sendKeys(faker.lorem().paragraph());
+        lorem = faker.lorem().paragraph();
+        pages_enes.textBox.sendKeys(lorem);
 
         Driver.getDriver().switchTo().parentFrame();
 
@@ -140,6 +144,11 @@ public class step_def_Enes {
 
         pages_enes.sendButton.click();
 
+        BrowserUtils.sleep(2);
+
+        assertTrue(pages_enes.textinSendedMessage.isDisplayed());
+
+
 
 
 
@@ -151,6 +160,10 @@ public class step_def_Enes {
     @Then("Verify User should be sees message delivery as all employees by default")
     public void verifyUserShouldBeSeesMessageDeliveryAsAllEmployeesByDefault() {
 
+
+        Driver.getDriver().switchTo().parentFrame();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(pages_enes.allEmployess));
         Assert.assertTrue(pages_enes.allEmployess.isDisplayed());
 
     }
@@ -200,6 +213,9 @@ public class step_def_Enes {
     public void verifyMessageDeliveryMustHaveBeenModified() {
 
         assertTrue(pages_enes.selectedEmployess1.isDisplayed());
+
+        BrowserUtils.sleep(3);
+
         assertTrue(pages_enes.selectedEmployess3.isDisplayed());
 
 
@@ -255,7 +271,7 @@ public class step_def_Enes {
         wait.until(ExpectedConditions.elementToBeClickable(pages_enes.cancelButton));
         pages_enes.cancelButton.click();
 
-
+        assertFalse(pages_enes.TopicBox.isDisplayed());
 
 
     }
@@ -275,9 +291,19 @@ public class step_def_Enes {
         Alert a = Driver.getDriver().switchTo().alert();
         a.accept();
 
+        BrowserUtils.sleep(2);
+
+
     }
 
     @Then("Verify The message mustn't display on screen")
     public void verifyTheMessageMustnTDisplayOnScreen() {
+
+
+
+
+         assertFalse(pages_enes.textinSendedMessage.getText().contains(lorem));
+
+        BrowserUtils.sleep(2);
     }
 }
