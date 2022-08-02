@@ -8,7 +8,7 @@ Feature:Message Box functionality
 
 
 #Done1
-
+  @Esra
   Scenario:User should be able to add mentions about only department employees.
     Given user should be displaying the "MESSAGE" tab from the top menu .
     And user  hits the message link from the top menu
@@ -29,13 +29,13 @@ Feature:Message Box functionality
     And user passes the link text into  text input box
     And user passes the "https://www.youtube.com/watch?v=HgeWwVCatk4&t=678s" into the  link input box
     And user clicks on save button
-    And user hits the send button
+    And user push the send button
     When user should verify that the link sent as a post under Activity Stream
 
 
 
 #3Failed
-  @Esra
+
   Scenario Outline:User should be able to insert YouTube and Vimeo video.
     Given user  hits the message link from the top menu
     When user hover over the insert video icon and clicks it
@@ -50,6 +50,7 @@ Feature:Message Box functionality
       | https://www.youtube.com/watch?v=Wgyirv9juFI |
 
   #Failed3
+
   Scenario Outline:User should be able to insert YouTube and Vimeo video.
     Given user  hits the message link from the top menu
     When user hover over the insert video icon and clicks it
@@ -64,14 +65,16 @@ Feature:Message Box functionality
       | https://vimeo.com/channels/staffpicks/731378604 |
 
 #4
+
   Scenario:User should be able to add quotes.
     Given user  hits the message link from the top menu
     When user hits the quote icon and clicks it
     And user types text into the message box
-    And user hits the send button
+    And user push the send button
     And user displays the attached quote below activity stream
 
 #5
+
   Scenario:User should be able to add tags in message.
     Given user  hits the message link from the top menu
     When user hits the quote icon and clicks it
@@ -80,9 +83,10 @@ Feature:Message Box functionality
     And user observes the tag input box
     And user types the tag input message
     And user clicks the add button below the input box
-    And user hits the send button
+    And user push the send button
     Then user displays the added tag below Activity Stream
 #6
+
   Scenario: User should be able to remove tags before sending the message
     Given user  hits the message link from the top menu
     When user hits the quote icon and clicks it
@@ -95,7 +99,7 @@ Feature:Message Box functionality
     And  user types the tag input message
     And user clicks the add button below the input box
     When removes the tags before sending the message
-    And user hits the send button
+    And user push the send button
     Then user verifies the removes tags below the Activit Stream
 
 

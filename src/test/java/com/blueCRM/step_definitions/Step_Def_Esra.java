@@ -11,6 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.remote.Browser;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -172,7 +173,6 @@ public class Step_Def_Esra {
     @And("user passes the link text into  text input box")
     public void userPassesTheLinkTextIntoTextInputBox() {
         BrowserUtils.sleep(3);
-
         page.textInputBox.sendKeys(faker.name().title());
 
     }
@@ -197,6 +197,7 @@ public class Step_Def_Esra {
 
     @And("user displays the attached quote below activity stream")
     public void userDisplaysTheAttachedQuoteBelowActivityStream() {
+        BrowserUtils.sleep(4);
         System.out.println("page.quoteText.getText() = " + page.quoteText.getText());
         Assert.assertTrue(page.quoteText.isDisplayed());
 
@@ -206,6 +207,8 @@ public class Step_Def_Esra {
     public void userHitsTheSendButton() {
 
         page.sendButton.click();
+        BrowserUtils.sleep(3);
+        Assert.assertFalse(page.errorMessage2.isDisplayed());
 
     }
 
@@ -266,5 +269,8 @@ public class Step_Def_Esra {
     }
 
 
-
+    @And("user push the send button")
+    public void userPushTheSendButton() {
+        page.sendButton.click();
+    }
 }
