@@ -1,16 +1,19 @@
 package com.blueCRM.utilities;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BrowserUtils {
-    /*
-This method will accept int (in seconds) and execute Thread.sleep
-for given duration
- */
+
+    /**
+     * This method will accept int (in seconds) and execute Thread.sleep
+     * for given duration
+     * @param second
+     */
     public static void sleep(int second){
         second *=1000;
         try {
@@ -25,6 +28,16 @@ for given duration
             elemTexts.add(eachElement.getText());
         }
         return elemTexts;
+    }
+
+    /**
+     * Clicks on an element using JavaScript
+     *
+     * @param element
+     */
+    public static void clickWithJS(WebElement element) {
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
     }
 
 

@@ -1,11 +1,9 @@
 package com.blueCRM.step_definitions;
 
-import com.blueCRM.pages.LoginPage_ZSS;
 import com.blueCRM.pages.MessagePage_ZSS;
 import com.blueCRM.utilities.BrowserUtils;
 import com.blueCRM.utilities.ConfigurationReader;
 import com.blueCRM.utilities.Driver;
-import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,17 +12,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
+
 import java.util.Map;
 
 import static org.junit.Assert.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class StepDefinitions_ZSS {
-    LoginPage_ZSS loginPage= new LoginPage_ZSS();
     MessagePage_ZSS mesaggePage= new MessagePage_ZSS();
     Actions actions= new Actions(Driver.getDriver());
 
@@ -32,9 +25,9 @@ public class StepDefinitions_ZSS {
     @Given("User is expected to login with valid credentials")
     public void user_is_expected_to_login_with_and(Map<String, String> credentials) {
         Driver.getDriver().get("https://qa.azulcrm.com/");
-        loginPage.userNameInput.sendKeys(credentials.get("username"));
-        loginPage.userPasswordInput.sendKeys(credentials.get("password"));
-        loginPage.loginButton.click();
+        mesaggePage.userNameInput.sendKeys(credentials.get("username"));
+        mesaggePage.userPasswordInput.sendKeys(credentials.get("password"));
+        mesaggePage.loginButton.click();
     }
 
     @When("user clicks on the send message tab")

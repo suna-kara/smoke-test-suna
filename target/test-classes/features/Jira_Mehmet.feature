@@ -9,8 +9,7 @@ Feature: Activity Stream Page Filter And Search Functionality
 
 	#Acceptance Criteria:
 	#1. User should be able to see default filters as "my activity, work, favorite, announcements, and workflows"
-	#@LUEC-500
-	@smoke
+	@LUEC-500
 	Scenario: User should be able to see default filters as "my activity, work, favorite, announcements, and workflows".
 		When Users click on filter and search input box
 		    Then Verify filters and search box should be contain the following in order as default

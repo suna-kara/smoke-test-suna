@@ -32,7 +32,7 @@ public class Step_Def_mehmet {
     public void user_is_on_the_blueCRM_login_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         pages_mehmet.usernameInputBox.click();
-        String email = "hr"+faker.numerify("53")+"@cybertekschool.com";
+        String email = "hr"+faker.numerify("2#")+"@cybertekschool.com";
         pages_mehmet.usernameInputBox.sendKeys(email);
         BrowserUtils.sleep(1);
         pages_mehmet.passwordInputBox.click();
@@ -41,7 +41,6 @@ public class Step_Def_mehmet {
         BrowserUtils.sleep(1);
         Assert.assertEquals(Driver.getDriver().getCurrentUrl(), ConfigurationReader.getProperty("mehmetVerifyUrl"));
         System.out.println("Url = " + Driver.getDriver().getCurrentUrl());
-
     }
 
     // AC : 1
@@ -121,36 +120,58 @@ public class Step_Def_mehmet {
         Assert.assertTrue(actualElementList.containsAll(expectedList));
     }
 
-    // AC:3
-
+    //AC:3
     @When("Users click on the date")
     public void users_click_on_the_date() {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(pages_mehmet.dateElement));
         pages_mehmet.dateElement.click();
     }
-
     @When("Users select one of the options they want which are inside of the date dropdown")
     public void users_select_one_of_the_options_they_want_which_are_inside_of_the_date_dropdown() {
-        BrowserUtils.sleep(2);
-        actions.sendKeys(Keys.ARROW_DOWN);
+        pages_mehmet.dateList.get(1).click();
         actions.sendKeys(Keys.ENTER);
+
     }
-    /*
     @When("Users click search button")
     public void users_click_search_button() {
+
         pages_mehmet.searchButton.click();
+        BrowserUtils.sleep(2);
+    }
+    @Then("Verify date filters work as expected")
+    public void verify_date_filters_work_as_expected() {
+        String expectedTitle = "yesterday";
+        List<WebElement> listName = pages_mehmet.filterTitle;
+        for (WebElement each : listName) {
+            Assert.assertTrue(each.getText().contains(expectedTitle));
+        }
     }
 
-     */
-    @Then("Verify filters work as expected")
-    public void verify_filters_work_as_expected() {
-        String expectedTitle = "Yesterday";
-        String actualTitle =pages_mehmet.timeFilterTitle.getText();
-        Assert.assertTrue(actualTitle.contains("yesterday"));
+    //AC:4
+    @When("Users click on the type dropdown")
+    public void users_click_on_the_type_dropdown() {
+        pages_mehmet.typeElement.click();
+    }
+    @When("Users select one of the options they want which are inside of the type dropdown")
+    public void users_select_one_of_the_options_they_want_which_are_inside_of_the_type_dropdown() {
+        pages_mehmet.typeList.get(1).click();
+        actions.sendKeys(Keys.ENTER);
+    }
+    @Then("Verify type filters work as expected")
+    public void verify_type_filters_work_as_expected() {
+        String expectedButton = "MARK AS READ";
+        List<WebElement> button = pages_mehmet.readBy;
+        for (WebElement each : button) {
+            System.out.println(each.getText());
+            Assert.assertTrue(each.getText().contains(expectedButton));
+        }
     }
 
-    // AC:5
+
+
+
+    //AC:5
     @When("Users click on the save filter button")
     public void users_click_on_the_save_filter_button() {
         pages_mehmet.saveFilterButton.click();
@@ -173,13 +194,11 @@ public class Step_Def_mehmet {
         Assert.assertTrue(listOfFilterNames.contains(filterName));
     }
 
-    // AC:6
-
+    //AC:6
     @When("Users click restore default fields link")
     public void users_click_restore_default_fields_link() {
         pages_mehmet.restoreDefaultFields.click();
     }
-
     @Then("Verify that the list is displayed as default.")
     public void verify_that_the_list_is_displayed_as_default(List<String> expectedList) {
         List<WebElement> currentList = pages_mehmet.currentList;
@@ -187,13 +206,10 @@ public class Step_Def_mehmet {
         for (WebElement each : currentList) {
             actualList.add(each.getText());
         }
-
         Assert.assertEquals(expectedList,actualList);
-
     }
 
     //AC:7
-
     @When("Users click on configure filter button")
     public void users_click_on_configure_filter_button() {
         pages_mehmet.configureFilters.click();

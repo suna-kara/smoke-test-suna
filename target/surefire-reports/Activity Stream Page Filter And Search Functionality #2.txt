@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------------
+Test set: Activity Stream Page Filter And Search Functionality #2
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 108.628 s <<< FAILURE! - in Activity Stream Page Filter And Search Functionality #2
+Activity Stream Page Filter And Search Functionality #2.User should be able to search by specifying the Date.  Time elapsed: 27.33 s  <<< ERROR!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //div[@class='main-ui-control-field']' (tried for 10 second(s) with 500 milliseconds interval)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='main-ui-control-field']"}
+  (Session info: chrome=103.0.5060.134)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.2.1', revision: 'ac4d0fdd4a'
+System info: host: 'DESKTOP-7QBIO4H', ip: '192.168.1.38', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [722a40b75a87cf38b6cbfc41a31ea2ec, findElement {using=xpath, value=//div[@class='main-ui-control-field']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 103.0.5060.134 (8ec6fce403b..., userDataDir: C:\Users\Mehmet\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:62533}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:62533/devtoo..., se:cdpVersion: 103.0.5060.134, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 722a40b75a87cf38b6cbfc41a31ea2ec
+
+Activity Stream Page Filter And Search Functionality #2.User should be able to search by selecting single or multiple types.  Time elapsed: 14.763 s  <<< ERROR!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <div data-name="EVENT_ID" data-params="{&quot;isMulti&quot;:true}" data-items="[{&quot;NAME&quot;:&quot;Posts&quot;,&quot;VALUE&quot;:&quot;blog_post&quot;},{&quot;NAME&quot;:&quot;Announcements&quot;,&quot;VALUE&quot;:&quot;blog_post_important&quot;},{&quot;NAME&quot;:&quot;Appreciations&quot;,&quot;VALUE&quot;:&quot;blog_post_grat&quot;},{&quot;NAME&quot;:&quot;Polls&quot;,&quot;VALUE&quot;:&quot;blog_post_vote&quot;},{&quot;NAME&quot;:&quot;Conversations&quot;,&quot;VALUE&quot;:&quot;forum&quot;},{&quot;NAME&quot;:&quot;Tasks&quot;,&quot;VALUE&quot;:&quot;tasks&quot;},{&quot;NAME&quot;:&quot;Working time management&quot;,&quot;VALUE&quot;:&quot;timeman_entry&quot;},{&quot;NAME&quot;:&quot;Work reports&quot;,&quot;VALUE&quot;:&quot;report&quot;},{&quot;NAME&quot;:&quot;Calendar&quot;,&quot;VALUE&quot;:&quot;calendar&quot;},{&quot;NAME&quot;:&quot;External source data&quot;,&quot;VALUE&quot;:&quot;data&quot;},{&quot;NAME&quot;:&quot;Photo gallery&quot;,&quot;VALUE&quot;:&quot;photo&quot;},{&quot;NAME&quot;:&quot;Wiki&quot;,&quot;VALUE&quot;:&quot;wiki&quot;},{&quot;NAME&quot;:&quot;Workflows&quot;,&quot;VALUE&quot;:&quot;lists_new_element&quot;}]" data-value="[]" class="main-ui-control main-ui-multi-select">...</div> is not clickable at point (1200, 507). Other element would receive the click: <div data-id="field_EXTRANET" data-name="EXTRANET" data-item="{&quot;ID&quot;:&quot;field_EXTRANET&quot;,&quot;TYPE&quot;:&quot;SELECT&quot;,&quot;NAME&quot;:&quot;EXTRANET&quot;,&quot;VALUE&quot;:{&quot;NAME&quot;:&quot;Not specified&quot;,&quot;VALUE&quot;:&quot;&quot;},&quot;PLACEHOLDER&quot;:&quot;&quot;,&quot;LABEL&quot;:&quot;Extranet&quot;,&quot;ITEMS&quot;:[{&quot;NAME&quot;:&quot;Not specified&quot;,&quot;VALUE&quot;:&quot;&quot;},{&quot;NAME&quot;:&quot;Yes&quot;,&quot;VALUE&quot;:&quot;Y&quot;},{&quot;NAME&quot;:&quot;No&quot;,&quot;VALUE&quot;:&quot;N&quot;}],&quot;PARAMS&quot;:{&quot;isMulti&quot;:false},&quot;STRICT&quot;:false}" class="main-ui-filter-field-list-item main-ui-select-inner-item main-ui-checked">...</div>
+  (Session info: chrome=103.0.5060.134)
+Build info: version: '4.2.1', revision: 'ac4d0fdd4a'
+System info: host: 'DESKTOP-7QBIO4H', ip: '192.168.1.38', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2ad3e934b5897a52c003ffb84c974694, clickElement {id=58acaa92-f384-4795-8fa5-554f180355d3}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 103.0.5060.134 (8ec6fce403b..., userDataDir: C:\Users\Mehmet\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:62558}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:62558/devtoo..., se:cdpVersion: 103.0.5060.134, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (2ad3e934b5897a52c003ffb84c974694)] -> xpath: //div[@class='main-ui-control main-ui-multi-select']]
+Session ID: 2ad3e934b5897a52c003ffb84c974694
+
