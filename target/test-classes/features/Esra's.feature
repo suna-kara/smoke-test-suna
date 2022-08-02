@@ -1,3 +1,4 @@
+@Esra
 Feature:Message Box functionality
   User Story:As a user, I should be able to add link, insert video, mention, quote, add tag in message.
 
@@ -8,7 +9,7 @@ Feature:Message Box functionality
 
 
 #Done1
-  @Esra
+
   Scenario:User should be able to add mentions about only department employees.
     Given user should be displaying the "MESSAGE" tab from the top menu .
     And user  hits the message link from the top menu
@@ -28,7 +29,7 @@ Feature:Message Box functionality
     And user hover over the link icon and clicks the icon
     And user passes the link text into  text input box
     And user passes the "https://www.youtube.com/watch?v=HgeWwVCatk4&t=678s" into the  link input box
-    And user clicks on save button
+    And user hits save button
     And user push the send button
     When user should verify that the link sent as a post under Activity Stream
 
@@ -41,7 +42,7 @@ Feature:Message Box functionality
     When user hover over the insert video icon and clicks it
     And user passes the youtube "<links>"
     And user clicks on save button
-    And user hits the send button
+    And user push the send button
     Then user should verify that the link video is attached under Activity Stream
 
     Examples: youtube links
@@ -64,7 +65,7 @@ Feature:Message Box functionality
       | https://vimeo.com/100192807                     |
       | https://vimeo.com/channels/staffpicks/731378604 |
 
-#4
+
 
   Scenario:User should be able to add quotes.
     Given user  hits the message link from the top menu
@@ -124,11 +125,7 @@ Feature:Message Box functionality
 
 
 
-#2. User should be able to attach link to specified text.
-#3. User should be able to insert YouTube and Vimeo video.
-#4. User should be able to add quotes.
-#5. User should be able to add tags in message.
-#6. User should be able to remove tags before sending the message
+
 
 
 
