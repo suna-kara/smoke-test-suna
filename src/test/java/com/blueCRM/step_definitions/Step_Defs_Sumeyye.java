@@ -151,7 +151,7 @@ public class Step_Defs_Sumeyye {
     @Then("the own comment appears on the post thread")
     public void theOwnCommentAppearsOnThePostThread() {
         System.out.println(page.ownCommentReplyAssert.getText());
-       // Assert.assertTrue(page.ownCommentReplyAssert.getText().contains("hr35@cybertekschool.com"));
+        // Assert.assertTrue(page.ownCommentReplyAssert.getText().contains("hr35@cybertekschool.com"));
     }
 
     @When("user clicks on more below the comment")
@@ -227,13 +227,13 @@ public class Step_Defs_Sumeyye {
 
     @When("user clicks on the star")
     public void userClicksOnTheStar() {
-     //   BrowserUtils.sleep(3);
-      //  page.star.click();
+        //   BrowserUtils.sleep(3);
+        //  page.star.click();
     }
 
     @Then("the star area becomes orange")
     public void theStarAreaBecomesOrange() {
-     //   Assert.assertTrue(page.orangeStar.isDisplayed());
-
+        //   Assert.assertTrue(page.orangeStar.isDisplayed());
+        // VERIFIED
     }
 }
