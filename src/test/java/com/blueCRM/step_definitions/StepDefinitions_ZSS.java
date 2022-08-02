@@ -53,10 +53,10 @@ public class StepDefinitions_ZSS {
     @And("user uploads a file from upload files and images section")
     public void userUploadsAFileFromUploadFilesAndImagesSection() {
         actions.moveToElement(mesaggePage.uploadFilesAndImagesBox).perform();
-        BrowserUtils.sleep(5);
+        BrowserUtils.sleep(10);
 
         mesaggePage.uploadFilesAndImages.sendKeys(filePath1_PDF);
-        BrowserUtils.sleep(3);
+        BrowserUtils.sleep(6);
     }
 
     @Then("the uploaded file name should be displayed")
@@ -70,11 +70,11 @@ public class StepDefinitions_ZSS {
         BrowserUtils.sleep(2);
 
         mesaggePage.uploadFilesAndImages.sendKeys(filePath1_PDF);
-        BrowserUtils.sleep(3);
+        BrowserUtils.sleep(10);
         mesaggePage.uploadFilesAndImages.sendKeys(filePath2_PDF);
         BrowserUtils.sleep(3);
         mesaggePage.uploadFilesAndImages.sendKeys(filePath3_PDF);
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(3);
     }
 
     @Then("the each file should be sucsessfully uploaded")
@@ -133,6 +133,7 @@ String imgName;
         mesaggePage.uploadFilesAndImages.sendKeys(filePath_png);
         BrowserUtils.sleep(3);
         imgName= mesaggePage.displayedFileNameText.getText();
+        BrowserUtils.sleep(3);
     }
 
     @Then("user should be able to display the uploaded picture in Activity Stream")
