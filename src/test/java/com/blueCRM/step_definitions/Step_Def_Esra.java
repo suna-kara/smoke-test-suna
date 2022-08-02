@@ -111,13 +111,14 @@ public class Step_Def_Esra {
 
     @Then("user displays the attached mention below activity stream")
     public void userDisplaysTheAttachedMentionBelowActivityStream() {
+        BrowserUtils.sleep(3);
         System.out.println("page.postedMention.getText() = " + page.postedMention.getText());
         Assert.assertTrue(page.postedMention.isDisplayed());
 
     }
 
-    @When("user clicks the send button")
-    public void userClicksTheSendButton() {
+    @When("user clicks the send buttonn")
+    public void userClicksTheSendButtonn() {
 
 
         try {
@@ -155,15 +156,15 @@ public class Step_Def_Esra {
 
     @And("user clicks on save button")
     public void userClicksOnSaveButton() {
-        page.saveButton.click();
-      /*  if(page.errorMessage1.isDisplayed()){
+       // page.saveButton.click();
+        if(page.errorMessage1.isDisplayed()){
             BrowserUtils.sleep(5);
             Assert.assertFalse("404The video is not found error message pops up", page.errorMessage1.isDisplayed());
         } else{
             BrowserUtils.sleep(4);
             page.saveButton.click();
 
-        }*/
+        }
 
 
     }
@@ -203,6 +204,7 @@ public class Step_Def_Esra {
 
     @And("user hits the send button")
     public void userHitsTheSendButton() {
+
         page.sendButton.click();
 
     }
@@ -234,11 +236,7 @@ public class Step_Def_Esra {
         System.out.println("page.addedTag.getText() = " + page.sendedTag.getText());
     }
 
-    @When("user types random text into the message box")
-    public void userTypesRandomTextIntoTheMessageBox() {
 
-
-    }
 
     @And("user observes the Add more tab and hits it")
     public void userObservesTheAddMoreTabAndHitsIt() {
@@ -266,4 +264,7 @@ public class Step_Def_Esra {
 
 
     }
+
+
+
 }

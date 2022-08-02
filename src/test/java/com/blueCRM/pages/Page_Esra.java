@@ -122,18 +122,6 @@ public class Page_Esra {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     @FindBy(xpath = "//input[@type='text']")
     public WebElement username;
     @FindBy(xpath = "//input[@type='password']")

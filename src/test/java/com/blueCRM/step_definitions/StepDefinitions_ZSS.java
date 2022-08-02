@@ -201,17 +201,16 @@ String imgName;
         assertEquals("renaming_performed", renamedFileName);
     }
 
-    @And("user clicks the send button")
-    public void userClicksTheSendButton() {
-        mesaggePage.sendButton.click();
-    }
 
     @Then("message should be sent")
     public void messageShouldBeSent() {
         BrowserUtils.sleep(3);
         assertTrue(mesaggePage.fileNameDisplayedAfterSendingMessage.isDisplayed());
     }
-
+    @And("user clicks the send button")
+    public void userClicksTheSendButton() {
+        mesaggePage.sendButton.click();
+    }
 
 
     @And("user chooses an employee in the employee list and clicks send button")
