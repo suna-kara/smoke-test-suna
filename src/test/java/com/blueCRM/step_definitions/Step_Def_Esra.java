@@ -43,7 +43,7 @@ public class Step_Def_Esra {
             mentions.add(element);
 
         }
-        mentions.get(2).click();
+        mentions.get(3).click();
     }
 
 
@@ -234,7 +234,7 @@ public class Step_Def_Esra {
 
     @Then("user displays the added tag below Activity Stream")
     public void userDisplaysTheAddedTagBelowActivityStream() {
-
+        BrowserUtils.sleep(3);
         Assert.assertTrue(page.sendedTag.isDisplayed());
         System.out.println("page.addedTag.getText() = " + page.sendedTag.getText());
     }
@@ -272,5 +272,10 @@ public class Step_Def_Esra {
     @And("user push the send button")
     public void userPushTheSendButton() {
         page.sendButton.click();
+    }
+
+    @And("user hits save button")
+    public void userHitsSaveButton() {
+        page.saveButton.click();
     }
 }
