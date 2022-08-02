@@ -11,6 +11,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class step_def_irem {
 
@@ -114,6 +118,41 @@ public class step_def_irem {
 
 
         Driver.closeDriver();
+
+    }
+
+    @When("User should be click insert video button")
+    public void userShouldBeClickInsertVideoButton() {
+
+        page.insertVideoButton.click();
+
+    }
+
+    @When("User should be add Video link")
+    public void user_should_be_add_video_link() {
+        BrowserUtils.sleep(2);
+        page.videoTextButton.sendKeys("https://vimeo.com/499694935");
+
+        Assert.assertTrue(page.textBox.getText().contains("https://vimeo.com/499694935"));
+
+
+    }
+
+    @Then("User after add a video link,should be click save button,The video should be see in message")
+    public void userAfterAddAVideoLinkShouldBeClickSaveButton() {
+
+
+        BrowserUtils.sleep(10);
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(page.videoErrorMessage));
+        Assert.assertTrue(page.videoErrorMessage.isDisplayed());
+
+        BrowserUtils.sleep(3);
+
+        Driver.closeDriver();
+
+
 
     }
 

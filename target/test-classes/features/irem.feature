@@ -21,3 +21,10 @@ Feature: add features in message
       When Users should click link button and should be able to write the "Amazon" and "https://www.amazon.com/"
       And User,After write a link, should click save button
       Then Verification Users should click send button and user should be see in message
+
+      @wip @irem
+  Scenario: As a user,User should be able to insert video.There can be only (Vimeo)
+    Given User should login with correct credential
+    When User should be click insert video button
+    And User should be add Video link
+    Then User after add a video link,should be click save button,The video should be see in message
