@@ -90,7 +90,7 @@ public class Page_Esra {
     @FindBy(xpath = "//blockquote[@class='bxhtmled-quote']")
     public WebElement addQuote;
 
-     @FindBy(id = "feed-post-contentview-BLOG_POST-2295")
+     @FindBy(xpath="//div[@class='feed-post-text-block-inner-inner']")
     public WebElement quoteText;
 
      @FindBy(id = "bx-b-tag-input-blogPostForm")
