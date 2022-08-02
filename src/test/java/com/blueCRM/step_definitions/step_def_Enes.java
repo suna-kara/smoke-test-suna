@@ -24,7 +24,7 @@ public class step_def_Enes {
 
     Pages_Enes pages_enes = new Pages_Enes();
     Faker faker = new Faker();
-
+    String lorem;
 
 
 
@@ -60,7 +60,6 @@ public class step_def_Enes {
 
 
         if (!(pages_enes.TopicBox.isDisplayed())){
-            BrowserUtils.sleep(2);
             pages_enes.TopicButton.click();
         }
 
@@ -72,6 +71,8 @@ public class step_def_Enes {
 
 
         BrowserUtils.sleep(2);
+
+
 
         if ((pages_enes.TopicBox.isDisplayed())){
             pages_enes.TopicBox.sendKeys(faker.name().title());
@@ -93,7 +94,8 @@ public class step_def_Enes {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(pages_enes.textBox));
 
-        pages_enes.textBox.sendKeys(faker.lorem().paragraph());
+        lorem = faker.lorem().paragraph();
+        pages_enes.textBox.sendKeys(lorem);
 
         Driver.getDriver().switchTo().parentFrame();
 
@@ -141,6 +143,10 @@ public class step_def_Enes {
         pages_enes.deletesymbolInEmployessMenu.click();
 
         pages_enes.sendButton.click();
+
+        BrowserUtils.sleep(2);
+
+        assertTrue(pages_enes.textinSendedMessage.isDisplayed());
 
 
 
@@ -265,7 +271,7 @@ public class step_def_Enes {
         wait.until(ExpectedConditions.elementToBeClickable(pages_enes.cancelButton));
         pages_enes.cancelButton.click();
 
-
+        assertFalse(pages_enes.TopicBox.isDisplayed());
 
 
     }
@@ -285,9 +291,19 @@ public class step_def_Enes {
         Alert a = Driver.getDriver().switchTo().alert();
         a.accept();
 
+        BrowserUtils.sleep(2);
+
+
     }
 
     @Then("Verify The message mustn't display on screen")
     public void verifyTheMessageMustnTDisplayOnScreen() {
+
+
+
+
+         assertFalse(pages_enes.textinSendedMessage.getText().contains(lorem));
+
+        BrowserUtils.sleep(2);
     }
 }

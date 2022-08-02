@@ -97,6 +97,9 @@ public  class Pages_Enes {
     @FindBy(xpath = "(//span[.='Delete'])[2]")
     public WebElement DeleteButton;
 
+    @FindBy(xpath = "(//div[@class='feed-post-text-block-inner-inner'])[1]")
+    public WebElement textinSendedMessage;
+
 
 
 
