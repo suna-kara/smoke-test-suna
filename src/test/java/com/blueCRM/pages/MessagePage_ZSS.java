@@ -14,35 +14,35 @@ public class MessagePage_ZSS {
         PageFactory.initElements(Driver.getDriver(), this);
     }
     @FindBy(className = "login-inp")
-    public WebElement userNameInput;
+    public WebElement userNameInput_z;
 
     @FindBy(name = "USER_PASSWORD")
-    public WebElement userPasswordInput;
+    public WebElement userPasswordInput_z;
 
     @FindBy(css = ".login-btn")
-    public WebElement loginButton;
+    public WebElement loginButton_z;
 
     @FindBy(xpath = "//div[@id='microoPostFormLHE_blogPostForm_inner']")
-    public WebElement messageBox;
+    public WebElement messageBox_z;
 
 
     @FindBy(xpath = "//span[@id='bx-b-uploadfile-blogPostForm']")
-    public WebElement uploadFileButton;
+    public WebElement uploadFileButton_z;
 
     @FindBy(name="bxu_files[]")
     public WebElement uploadFilesAndImages;
 
-    @FindBy(xpath = "//span[@class=\"wd-fa-add-file-light\"]")
+    @FindBy(xpath = "(//span[@class='wd-fa-add-file-light'])[1]")
     public WebElement uploadFilesAndImagesBox;
 
     @FindBy(css = "input[name='BLOG_POST_DISK_ATTACHED_OBJECT_ALLOW_EDIT']")
     public WebElement allowRecipientsCheckBox;
 
     @FindBy(xpath = "//span[@class='bxhtmled-top-bar-btn bxhtmled-button-more']")
-    public WebElement moreButton;
+    public WebElement moreButton_z;
 
     @FindBy (xpath= "//span[@title='Image']")
-    public WebElement imageButton;
+    public WebElement imageButton_z;
 
     @FindBy(id = "bx_image-src")
     public WebElement imagePathBox;
@@ -53,9 +53,11 @@ public class MessagePage_ZSS {
     @FindBy(css = "span[title='Click to insert file']")
     public WebElement displayedFileNameBox;
 
-    @FindBy(css = "span[class='f-wrap']")
-    public WebElement displayedFileNameText;
+    @FindBy(css = "input[class='files-name-edit-inp']")
+    public WebElement getDisplayedFileNameText_value;
 
+    @FindBy(css = "input[class='f-wrap']")
+    public WebElement displayedFileNameText;
 
     @FindBy(xpath = "//input[@class='files-name-edit-inp']")
     public WebElement fileNameLink;
@@ -70,7 +72,7 @@ public class MessagePage_ZSS {
     public WebElement insideTheMessageBox;
 
     @FindBy(xpath = "//span[@class='del-but']")
-    public WebElement deleteButton;
+    public WebElement deleteButton_z;
     @FindBy(xpath = "//span[@class='files-name-edit-btn']")
     public WebElement renameFileButton;
 
@@ -91,13 +93,13 @@ public class MessagePage_ZSS {
     public WebElement emailNameDisplayedAfterSendingMessage;
 
     @FindBy(id = "blog-submit-button-save")
-    public WebElement sendButton;
+    public WebElement sendMessageButton_z;
 
     @FindBy(xpath = "//a[.='Add more']")
-    public WebElement addEmployeeButton;
+    public WebElement addEmployeeButton_z;
 
     @FindBy(xpath = "//a[@class='bx-finder-box-item-t7 bx-finder-element bx-lm-element-user']")
-    public List<WebElement> listOfEmployees;
+    public List<WebElement> listOfEmployees_z;
 
     public boolean isElementPresent(WebElement element) {
         try {
@@ -110,9 +112,9 @@ public class MessagePage_ZSS {
 
     public void login(){
         Driver.getDriver().get("https://qa.azulcrm.com/");
-        userNameInput.sendKeys(ConfigurationReader.getProperty("username"));
-        userPasswordInput.sendKeys(ConfigurationReader.getProperty("password"));
-        loginButton.click();
+        userNameInput_z.sendKeys(ConfigurationReader.getProperty("username"));
+        userPasswordInput_z.sendKeys(ConfigurationReader.getProperty("password"));
+        loginButton_z.click();
     }
 
 }

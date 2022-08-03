@@ -25,19 +25,19 @@ public class StepDefinitions_ZSS {
     @Given("User is expected to login with valid credentials")
     public void user_is_expected_to_login_with_and(Map<String, String> credentials) {
         Driver.getDriver().get("https://qa.azulcrm.com/");
-        mesaggePage.userNameInput.sendKeys(credentials.get("username"));
-        mesaggePage.userPasswordInput.sendKeys(credentials.get("password"));
-        mesaggePage.loginButton.click();
+        mesaggePage.userNameInput_z.sendKeys(credentials.get("username"));
+        mesaggePage.userPasswordInput_z.sendKeys(credentials.get("password"));
+        mesaggePage.loginButton_z.click();
     }
 
     @When("user clicks on the send message tab")
     public void user_clicks_on_the_send_message_tab() {
-        mesaggePage.messageBox.click();
+        mesaggePage.messageBox_z.click();
         BrowserUtils.sleep(5);
     }
     @When("user clicks on the uploadFile button")
     public void user_clicks_on_the_upload_file_button() {
-        mesaggePage.uploadFileButton.click();
+        mesaggePage.uploadFileButton_z.click();
         BrowserUtils.sleep(1);
     }
 
@@ -152,13 +152,12 @@ String imgName;
 
     @Then("user should see the file name inside the message box")
     public void userShouldSeeTheFileNameInsideTheMessageBox() {
-        String fileName= mesaggePage.displayedFileNameText.getAttribute("value");
+        String fileName= mesaggePage.getDisplayedFileNameText_value.getAttribute("value");
         String expectedFileName = fileName.substring(0, fileName.indexOf(" "));
         Driver.getDriver().switchTo().frame(Driver.getDriver().findElement(By.className("bx-editor-iframe")));
         BrowserUtils.sleep(2);
         String messageText= mesaggePage.insideTheMessageBox.getText();
-
-
+        BrowserUtils.sleep(3);
         assertTrue(messageText.contains(expectedFileName));
     }
 
@@ -175,8 +174,8 @@ String imgName;
 
     @Then("user should be able to click the delete button")
     public void userShouldBeAbleToClickTheDeleteButton() {
-        assertTrue(mesaggePage.deleteButton.isDisplayed());
-        mesaggePage.deleteButton.click();
+        assertTrue(mesaggePage.deleteButton_z.isDisplayed());
+        mesaggePage.deleteButton_z.click();
     }
 
     @Then("the files should be removed after clicking the delete button")
@@ -199,7 +198,7 @@ String imgName;
         mesaggePage.renameFileEditBox.sendKeys("renaming_performed" + Keys.ENTER);
         BrowserUtils.sleep(2);
         String renamedFileName= mesaggePage.displayedFileNameText.getText();
-        assertEquals("renaming_performed", renamedFileName);
+        assertTrue(renamedFileName.contains("renaming_performed"));
     }
 
 
@@ -210,23 +209,23 @@ String imgName;
     }
     @And("user clicks the send button")
     public void userClicksTheSendButton() {
-        mesaggePage.sendButton.click();
+        mesaggePage.sendMessageButton_z.click();
     }
 
 
     @And("user chooses an employee in the employee list and clicks send button")
     public void userChoosesAnEmployeeInTheEmployeeList() {
-        mesaggePage.addEmployeeButton.click();
-        mesaggePage.listOfEmployees.get(0).click();
+        mesaggePage.addEmployeeButton_z.click();
+        mesaggePage.listOfEmployees_z.get(0).click();
         BrowserUtils.sleep(2);
     }
 
     @Then("message should be sent to the selected employee")
     public void messageShouldBeSentToTheSelectedEmployee() {
-        WebElement selectedEmployee= mesaggePage.listOfEmployees.get(0);
+        WebElement selectedEmployee= mesaggePage.listOfEmployees_z.get(0);
         BrowserUtils.sleep(2);
 
-        mesaggePage.sendButton.click();
+        mesaggePage.sendMessageButton_z.click();
 
         assertTrue(mesaggePage.fileNameDisplayedAfterSendingMessage.isDisplayed());
         assertEquals(selectedEmployee.getText(), mesaggePage.emailNameDisplayedAfterSendingMessage.getText());
