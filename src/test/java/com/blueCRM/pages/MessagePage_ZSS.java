@@ -32,7 +32,7 @@ public class MessagePage_ZSS {
     @FindBy(name="bxu_files[]")
     public WebElement uploadFilesAndImages;
 
-    @FindBy(xpath = "//span[@class=\"wd-fa-add-file-light\"]")
+    @FindBy(xpath = "(//span[@class='wd-fa-add-file-light'])[1]")
     public WebElement uploadFilesAndImagesBox;
 
     @FindBy(css = "input[name='BLOG_POST_DISK_ATTACHED_OBJECT_ALLOW_EDIT']")
